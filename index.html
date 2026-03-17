@@ -1,1 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ============================================================
+       OLIVASCALES — index.html
+       Dark luxury / streetwear personal brand website
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Olivascales — Build something bigger. Take the step. Join the movement." />
+  <meta name="theme-color" content="#000000" />
 
+  <!-- Open Graph (social sharing) — replace image URL later -->
+  <meta property="og:title" content="Olivascales" />
+  <meta property="og:description" content="Build something bigger. Take the step." />
+  <meta property="og:image" content="assets/og-image.jpg" />
+  <meta property="og:type" content="website" />
+
+  <title>Olivascales</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       INTRO / LOADING SCREEN
+       Appears on first load, fades out automatically
+       ============================================================ -->
+  <div id="intro-screen" role="presentation" aria-hidden="true">
+    <!-- Scan line animation -->
+    <div class="intro-scan-line"></div>
+
+    <!-- Corner decorations (luxury frame feel) -->
+    <div class="intro-corner intro-corner--tl"></div>
+    <div class="intro-corner intro-corner--tr"></div>
+    <div class="intro-corner intro-corner--bl"></div>
+    <div class="intro-corner intro-corner--br"></div>
+
+    <!-- Cross Logo -->
+    <div class="intro-logo">
+      <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- Outer decorative ring -->
+        <circle cx="45" cy="45" r="43" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <!-- Inner ring -->
+        <circle cx="45" cy="45" r="36" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+
+        <!-- Main cross body (elongated vertical, shorter horizontal — original proportion) -->
+        <rect x="40" y="10" width="10" height="70" rx="1" fill="white"/>
+        <rect x="14" y="36" width="62" height="10" rx="1" fill="white"/>
+
+        <!-- Pointed diamond ends on cross arms — makes it look sharp & unique -->
+        <!-- Top point -->
+        <polygon points="45,5 42,14 48,14" fill="white"/>
+        <!-- Bottom point -->
+        <polygon points="45,85 42,76 48,76" fill="white"/>
+        <!-- Left point -->
+        <polygon points="9,41 18,38 18,44" fill="white"/>
+        <!-- Right point -->
+        <polygon points="81,41 72,38 72,44" fill="white"/>
+
+        <!-- Center diamond overlay -->
+        <rect x="40.5" y="40.5" width="9" height="9" rx="0.5" fill="black" transform="rotate(45 45 45)"/>
+        <rect x="41.5" y="41.5" width="7" height="7" rx="0.5" fill="white" transform="rotate(45 45 45)"/>
+
+        <!-- Four small star/cross accents at diagonal corners -->
+        <!-- Top-right -->
+        <line x1="64" y1="24" x2="64" y2="30" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+        <line x1="61" y1="27" x2="67" y2="27" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+        <!-- Top-left -->
+        <line x1="26" y1="24" x2="26" y2="30" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+        <line x1="23" y1="27" x2="29" y2="27" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+        <!-- Bottom-right -->
+        <line x1="64" y1="60" x2="64" y2="66" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+        <line x1="61" y1="63" x2="67" y2="63" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+        <!-- Bottom-left -->
+        <line x1="26" y1="60" x2="26" y2="66" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+        <line x1="23" y1="63" x2="29" y2="63" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
+      </svg>
+    </div>
+
+    <!-- Brand name -->
+    <div class="intro-title">Olivascales</div>
+
+    <!-- Tagline -->
+    <div class="intro-subtitle">Build Something Bigger</div>
+
+    <!-- Progress bar -->
+    <div class="intro-progress">
+      <div class="intro-progress-fill"></div>
+    </div>
+  </div>
+  <!-- / INTRO SCREEN -->
+
+
+  <!-- ============================================================
+       NAVBAR — Sticky, transparent → frosted on scroll
+       ============================================================ -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+
+      <!-- Logo -->
+      <a href="#hero" class="nav-logo" aria-label="Olivascales home">
+        <span class="nav-logo-icon">
+          <svg width="32" height="32" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="40" y="10" width="10" height="70" rx="1" fill="white"/>
+            <rect x="14" y="36" width="62" height="10" rx="1" fill="white"/>
+            <polygon points="45,5 42,14 48,14" fill="white"/>
+            <polygon points="45,85 42,76 48,76" fill="white"/>
+            <polygon points="9,41 18,38 18,44" fill="white"/>
+            <polygon points="81,41 72,38 72,44" fill="white"/>
+            <rect x="40.5" y="40.5" width="9" height="9" rx="0.5" fill="black" transform="rotate(45 45 45)"/>
+            <rect x="41.5" y="41.5" width="7" height="7" rx="0.5" fill="white" transform="rotate(45 45 45)"/>
+          </svg>
+        </span>
+        <span class="nav-logo-text">Olivascales</span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav-links">
+        <li><a href="#story">Story</a></li>
+        <li><a href="#movement">Movement</a></li>
+        <li><a href="#merch">Merch</a></li>
+        <li><a href="#merch" class="btn btn-ghost" style="padding:10px 22px;">Join Now</a></li>
+      </ul>
+
+      <!-- Hamburger toggle (mobile) -->
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile fullscreen nav -->
+  <ul class="nav-mobile" id="nav-mobile" role="menu">
+    <li><a href="#story">Story</a></li>
+    <li><a href="#movement">Movement</a></li>
+    <li><a href="#merch">Merch</a></li>
+    <li><a href="#merch">Join Now</a></li>
+  </ul>
+  <!-- / NAVBAR -->
+
+
+  <!-- ============================================================
+       SECTION 1 — HERO
+       ============================================================ -->
+  <section id="hero">
+    <!-- Background decorative grid -->
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <!-- Radial ambient glow -->
+    <div class="hero-glow" aria-hidden="true"></div>
+
+    <!-- Large background cross decoration -->
+    <div class="hero-cross-deco" aria-hidden="true">
+      <svg width="500" height="500" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="10" width="10" height="70" rx="1" fill="white"/>
+        <rect x="14" y="36" width="62" height="10" rx="1" fill="white"/>
+        <polygon points="45,5 42,14 48,14" fill="white"/>
+        <polygon points="45,85 42,76 48,76" fill="white"/>
+        <polygon points="9,41 18,38 18,44" fill="white"/>
+        <polygon points="81,41 72,38 72,44" fill="white"/>
+        <rect x="40.5" y="40.5" width="9" height="9" rx="0.5" fill="black" transform="rotate(45 45 45)"/>
+        <rect x="41.5" y="41.5" width="7" height="7" rx="0.5" fill="white" transform="rotate(45 45 45)"/>
+      </svg>
+    </div>
+
+    <div class="container hero-content">
+
+      <!-- Eyebrow label -->
+      <div class="hero-eyebrow hero-animate delay-1">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">Est. Now — Build Different</span>
+      </div>
+
+      <!-- Main headline -->
+      <!-- EDIT: Change this headline to anything you want -->
+      <h1 class="hero-headline hero-animate delay-2">
+        Built From<br />
+        <span class="highlight">Nothing.</span><br />
+        Made for<br />Everything.
+      </h1>
+
+      <!-- Subheadline -->
+      <!-- EDIT: Change this subheadline -->
+      <p class="hero-sub hero-animate delay-3">
+        No shortcuts. No handouts. Just the relentless belief that one right move can
+        change everything. This is Olivascales — a movement for the ones who refuse to stop.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="hero-cta hero-animate delay-4">
+        <a href="#movement" class="btn btn-primary">
+          Join the Movement
+          <svg class="btn-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#story" class="btn btn-outline">
+          Take the Step
+        </a>
+        <a href="#story" class="btn btn-ghost">
+          Start Your Journey
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span class="hero-scroll-text">Scroll</span>
+    </div>
+  </section>
+  <!-- / HERO -->
+
+
+  <div class="divider"></div>
+
+
+  <!-- ============================================================
+       SECTION 2 — MY STORY
+       ============================================================ -->
+  <section id="story">
+    <div class="container">
+
+      <div class="story-inner">
+
+        <!-- LEFT — sticky heading -->
+        <div class="story-left">
+          <div class="story-number" aria-hidden="true">01</div>
+          <span class="section-tag">The Beginning</span>
+          <h2>My<br />Story.</h2>
+          <div class="story-accent-line"></div>
+          <!-- EDIT: Change this short tagline if needed -->
+          <p>
+            Not polished. Not perfect. Real. This is where I came from — and why I'm not stopping.
+          </p>
+        </div>
+
+        <!-- RIGHT — scrollable story blocks -->
+        <div class="story-right">
+
+          <!-- Block 1 — Origin -->
+          <div class="story-block">
+            <p>
+              I didn't grow up with advantages. No trust fund, no connections, no roadmap.
+              My family was humble — the kind of humble where every dollar has a story and
+              you learn early that nothing comes easy. My mother carried us through some of
+              the hardest times imaginable. She worked without complaining, sacrificed without
+              asking for anything back. Watching her is still the reason I don't quit.
+            </p>
+          </div>
+
+          <!-- Block 2 — The Hustle -->
+          <div class="story-block">
+            <p>
+              Like a lot of people, I tried everything to change my situation. Dropshipping —
+              built stores, ran ads, got a few sales, hit walls. Day trading — stared at charts
+              until midnight, made some wins, gave them back. Crypto — rode the waves,
+              felt the highs, felt the lows. I wasn't failing because I was lazy. I was failing
+              because I hadn't found the thing I was actually built for yet.
+            </p>
+          </div>
+
+          <!-- Block 3 — Discovery -->
+          <div class="story-block">
+            <p>
+              Then I came across scaling businesses. And something clicked differently. Not just
+              interest — recognition. Like I had finally found the arena I was supposed to be
+              in. The idea that you could take something that already works and make it grow —
+              that made sense to me in a way nothing else had.
+            </p>
+          </div>
+
+          <!-- Block 4 — Rejection -->
+          <div class="story-block">
+            <p>
+              But getting in wasn't easy. I reached out. I pitched. I showed up.
+              And I got rejected — a lot. Business owners didn't know me. Why would they trust
+              me? I had no portfolio, no reputation, no credibility yet. Just hunger. Just
+              belief. Just an obsessive willingness to outwork everyone who had more than me.
+            </p>
+          </div>
+
+          <!-- Key quote -->
+          <div class="story-quote">
+            <blockquote>
+              "Sometimes the only thing standing between you and everything is one yes."
+            </blockquote>
+          </div>
+
+          <!-- Block 5 — The Turn -->
+          <div class="story-block">
+            <p>
+              Then I got one yes. One person decided to bet on me. I treated that opportunity
+              like it was the last door on earth. I over-delivered. I stayed late. I obsessed.
+              That one yes turned into two. Two turned into five. And five is when something
+              inside me finally understood — this is real. This is working. And there's no limit
+              to how far this can go.
+            </p>
+          </div>
+
+          <!-- Block 6 — The Mission -->
+          <div class="story-block">
+            <p>
+              I built Olivascales because I know I'm not the only person who's been in that place —
+              trying hard, getting rejected, wondering if it's ever going to happen. It happens.
+              But only if you don't stop before it does.
+            </p>
+          </div>
+
+        </div>
+        <!-- / story-right -->
+
+      </div>
+      <!-- / story-inner -->
+
+    </div>
+  </section>
+  <!-- / MY STORY -->
+
+
+  <div class="divider"></div>
+
+
+  <!-- ============================================================
+       SECTION 3 — MOVEMENT / OFFER
+       ============================================================ -->
+  <section id="movement">
+    <div class="movement-bg" aria-hidden="true"></div>
+    <div class="movement-lines" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="movement-inner">
+
+        <span class="section-tag fade-up">The Movement</span>
+
+        <!-- EDIT: Change this headline -->
+        <h2 class="fade-up delay-1">
+          Stop Waiting.<br />Start Building.
+        </h2>
+
+        <!-- EDIT: Change or expand this text -->
+        <p class="fade-up delay-2">
+          You already know what you want. You've been circling it — watching others make moves,
+          wondering when your moment comes. It doesn't come. You go get it.
+          Olivascales is for the people who are done watching and ready to build.
+          Bet on yourself. Put in the reps. Show up when it's hard. The ones who make it
+          aren't the most talented — they're the ones who didn't stop.
+          This is your invitation to be one of them.
+        </p>
+
+        <!-- Three pillars -->
+        <div class="movement-pillars" aria-label="Core values">
+
+          <!-- Pillar 1 -->
+          <div class="pillar">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="18" y1="4"  x2="18" y2="32" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+                <line x1="4"  y1="18" x2="32" y2="18" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="18" cy="18" r="3" fill="white"/>
+              </svg>
+            </div>
+            <!-- EDIT: Pillar title -->
+            <h4>Bet on Yourself</h4>
+            <!-- EDIT: Pillar description -->
+            <p>
+              No one's coming to save you. The only person who can change your situation is looking back at you in the mirror every morning.
+            </p>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="pillar">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="5" width="10" height="10" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" rx="1"/>
+                <rect x="21" y="5" width="10" height="10" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" rx="1"/>
+                <rect x="5" y="21" width="10" height="10" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" rx="1"/>
+                <rect x="21" y="21" width="10" height="10" stroke="white" stroke-width="1.5" rx="1" fill="rgba(255,255,255,0.06)"/>
+              </svg>
+            </div>
+            <!-- EDIT: Pillar title -->
+            <h4>Build with Me</h4>
+            <!-- EDIT: Pillar description -->
+            <p>
+              This isn't just content. This is a blueprint. Real strategies, real accountability, real results — built alongside people who are serious.
+            </p>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="pillar">
+            <div class="pillar-icon" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="5,26 13,16 20,21 28,8" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="28" cy="8" r="2.5" fill="white"/>
+              </svg>
+            </div>
+            <!-- EDIT: Pillar title -->
+            <h4>Scale Everything</h4>
+            <!-- EDIT: Pillar description -->
+            <p>
+              Growth isn't luck — it's a system. One yes becomes two. Two becomes five. Five becomes a life you didn't think was possible.
+            </p>
+          </div>
+
+        </div>
+        <!-- / pillars -->
+
+        <!-- CTAs -->
+        <div class="movement-cta fade-up delay-3">
+          <!-- EDIT: These button links go wherever your course/community link will be -->
+          <a href="#merch" class="btn btn-primary">
+            Join Now
+            <svg class="btn-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#story" class="btn btn-outline">Build With Me</a>
+          <a href="#merch" class="btn btn-ghost">Take the Step</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- / MOVEMENT -->
+
+
+  <div class="divider"></div>
+
+
+  <!-- ============================================================
+       SECTION 4 — MERCH COMING SOON
+       ============================================================ -->
+  <section id="merch">
+    <div class="container">
+
+      <!-- Header -->
+      <div class="merch-header">
+        <span class="section-tag fade-up">Exclusive Drops</span>
+        <h2 class="fade-up delay-1">
+          Merch<br />
+          <span class="dim">Coming Soon</span>
+        </h2>
+        <!-- EDIT: Change this merch description -->
+        <p class="fade-up delay-2">
+          This isn't just clothing. It's armor. Every piece carries the weight of what it means
+          to be built from nothing — worn by the ones who decided they weren't done yet.
+        </p>
+      </div>
+
+      <!-- Product placeholder cards -->
+      <!-- EDIT: Replace card names and eventually add real product images -->
+      <div class="merch-grid">
+
+        <!-- Card 1 -->
+        <div class="merch-card">
+          <div class="merch-card-bg">
+            <div class="merch-card-logo">
+              <svg width="80" height="80" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="40" y="10" width="10" height="70" rx="1" fill="white"/>
+                <rect x="14" y="36" width="62" height="10" rx="1" fill="white"/>
+                <polygon points="45,5 42,14 48,14" fill="white"/>
+                <polygon points="45,85 42,76 48,76" fill="white"/>
+                <polygon points="9,41 18,38 18,44" fill="white"/>
+                <polygon points="81,41 72,38 72,44" fill="white"/>
+                <rect x="40.5" y="40.5" width="9" height="9" rx="0.5" fill="black" transform="rotate(45 45 45)"/>
+                <rect x="41.5" y="41.5" width="7" height="7" rx="0.5" fill="white" transform="rotate(45 45 45)"/>
+              </svg>
+            </div>
+          </div>
+          <div class="merch-card-blur">
+            <span class="merch-card-label">Olivascales — Drop 001</span>
+            <!-- EDIT: Change product name -->
+            <span class="merch-card-name">Signature Tee</span>
+          </div>
+          <span class="merch-card-badge">Soon</span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="merch-card">
+          <div class="merch-card-bg" style="background: linear-gradient(135deg, #0d0d0d, #1c1c1c);">
+            <div class="merch-card-logo">
+              <svg width="70" height="70" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="40" y="10" width="10" height="70" rx="1" fill="white" opacity="0.9"/>
+                <rect x="14" y="36" width="62" height="10" rx="1" fill="white" opacity="0.9"/>
+                <polygon points="45,5 42,14 48,14" fill="white"/>
+                <polygon points="45,85 42,76 48,76" fill="white"/>
+                <polygon points="9,41 18,38 18,44" fill="white"/>
+                <polygon points="81,41 72,38 72,44" fill="white"/>
+              </svg>
+            </div>
+          </div>
+          <div class="merch-card-blur">
+            <span class="merch-card-label">Olivascales — Drop 001</span>
+            <!-- EDIT: Change product name -->
+            <span class="merch-card-name">Heavy Hoodie</span>
+          </div>
+          <span class="merch-card-badge">Soon</span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="merch-card">
+          <div class="merch-card-bg" style="background: linear-gradient(135deg, #131313, #1f1f1f);">
+            <div class="merch-card-logo">
+              <svg width="60" height="60" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="40" y="10" width="10" height="70" rx="1" fill="white" opacity="0.8"/>
+                <rect x="14" y="36" width="62" height="10" rx="1" fill="white" opacity="0.8"/>
+                <polygon points="45,5 42,14 48,14" fill="white"/>
+                <polygon points="45,85 42,76 48,76" fill="white"/>
+                <polygon points="9,41 18,38 18,44" fill="white"/>
+                <polygon points="81,41 72,38 72,44" fill="white"/>
+                <rect x="40.5" y="40.5" width="9" height="9" rx="0.5" fill="black" transform="rotate(45 45 45)"/>
+                <rect x="41.5" y="41.5" width="7" height="7" rx="0.5" fill="white" transform="rotate(45 45 45)"/>
+              </svg>
+            </div>
+          </div>
+          <div class="merch-card-blur">
+            <span class="merch-card-label">Olivascales — Drop 001</span>
+            <!-- EDIT: Change product name -->
+            <span class="merch-card-name">Chrome Cap</span>
+          </div>
+          <span class="merch-card-badge">Soon</span>
+        </div>
+
+      </div>
+      <!-- / merch-grid -->
+
+      <!-- Email notify -->
+      <div class="merch-notify fade-up">
+        <!-- EDIT: Change this notify text -->
+        <p>Be the first to know when the first drop lands. No spam. Just the signal.</p>
+
+        <form id="notify-form" novalidate>
+          <input
+            type="email"
+            id="notify-email"
+            class="notify-input"
+            placeholder="your@email.com"
+            autocomplete="email"
+            aria-label="Email address for merch notifications"
+          />
+          <button type="submit" class="notify-btn">Notify Me</button>
+        </form>
+
+        <p id="notify-success" class="notify-success" role="alert" aria-live="polite">
+          ✦ &nbsp; You're in. We'll reach out when it drops.
+        </p>
+      </div>
+
+    </div>
+  </section>
+  <!-- / MERCH -->
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer id="footer">
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <!-- Logo -->
+        <div class="footer-logo">
+          <svg width="28" height="28" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="40" y="10" width="10" height="70" rx="1" fill="rgba(255,255,255,0.3)"/>
+            <rect x="14" y="36" width="62" height="10" rx="1" fill="rgba(255,255,255,0.3)"/>
+            <polygon points="45,5 42,14 48,14" fill="rgba(255,255,255,0.3)"/>
+            <polygon points="45,85 42,76 48,76" fill="rgba(255,255,255,0.3)"/>
+            <polygon points="9,41 18,38 18,44" fill="rgba(255,255,255,0.3)"/>
+            <polygon points="81,41 72,38 72,44" fill="rgba(255,255,255,0.3)"/>
+          </svg>
+          <span class="footer-logo-text">Olivascales</span>
+        </div>
+
+        <!-- Footer nav links -->
+        <!-- EDIT: Add real social/page links here -->
+        <ul class="footer-links">
+          <li><a href="#story">Story</a></li>
+          <li><a href="#movement">Movement</a></li>
+          <li><a href="#merch">Merch</a></li>
+          <!-- EDIT: Add your Instagram/Twitter/TikTok links -->
+          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+
+      </div>
+
+      <div class="footer-bottom">
+        <!-- EDIT: Change year and name as needed -->
+        <p class="footer-copy">© 2025 Olivascales. All rights reserved.</p>
+        <p class="footer-tagline">Built from nothing. Made for everything.</p>
+      </div>
+
+    </div>
+  </footer>
+  <!-- / FOOTER -->
+
+
+  <!-- Main script -->
+  <script src="script.js"></script>
+
+</body>
+</html>
