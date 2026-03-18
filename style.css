@@ -1,5 +1,5 @@
 /* ============================================================
-   OLIVASCALES — style.css  (v2 — Mentorship / Course focus)
+   OLIVASCALES — style.css  (v3 — Instagram + Discord update)
    ============================================================ */
 
 /* ---------- RESET & BASE ---------- */
@@ -735,4 +735,97 @@ a  { color: inherit; text-decoration: none; }
   .chapter-marker { flex-direction: row; align-items: center; gap: 1rem; }
   .chapter-line { width: 40px; height: 1px; flex: none; background: linear-gradient(to right, var(--dark4), transparent); }
   .unlock-cta { flex-direction: column; align-items: flex-start; }
+}
+
+/* ---------- DISCORD BUTTON (inside unlock card) ---------- */
+.unlock-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--silver-dim);
+  border: 1px solid var(--dark4);
+  padding: 7px 14px;
+  text-decoration: none;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.unlock-card-btn:hover {
+  color: var(--white);
+  border-color: var(--silver-dim);
+}
+.unlock-card-btn svg { opacity: 0.6; transition: transform 0.3s ease, opacity 0.3s ease; }
+.unlock-card-btn:hover svg { opacity: 1; transform: translateX(3px); }
+
+/* ---------- INSTAGRAM NAV LINK ---------- */
+.nav-ig-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--silver-dim);
+  transition: color var(--transition-fast);
+  text-decoration: none;
+}
+.nav-ig-link:hover { color: var(--white); }
+.nav-ig-link svg { flex-shrink: 0; transition: opacity 0.3s ease; opacity: 0.7; }
+.nav-ig-link:hover svg { opacity: 1; }
+
+/* ---------- INSTAGRAM CTA STRIP (below apply form) ---------- */
+.ig-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding: 1.4rem 2rem;
+  border: 1px solid var(--dark3);
+  background: var(--dark1);
+  transition: border-color var(--transition);
+}
+.ig-strip:hover { border-color: var(--dark4); }
+
+.ig-strip-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ig-strip-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ig-strip-label {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--silver-dim);
+}
+
+.ig-strip-handle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  color: var(--white);
+}
+
+.ig-strip-btn {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .ig-strip { flex-direction: column; align-items: flex-start; }
+  .ig-strip-btn { width: 100%; justify-content: center; }
 }
