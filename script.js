@@ -1,6 +1,71 @@
 /* ============================================================
-   OLIVASCALES — script.js  (v2 — Mentorship / Course focus)
+   OLIVASCALES — script.js  (v3 — luxury intro)
    ============================================================ */
+
+/* ---------- STARLIGHT CANVAS (Rolls-Royce luxury particles) ---------- */
+function initStarlightCanvas() {
+  const intro = document.getElementById('intro-screen');
+  if (!intro) return null;
+
+  const canvas = document.createElement('canvas');
+  canvas.setAttribute('aria-hidden', 'true');
+  canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;';
+  intro.insertBefore(canvas, intro.firstChild);
+
+  const ctx = canvas.getContext('2d');
+  let W = canvas.width  = intro.offsetWidth  || window.innerWidth;
+  let H = canvas.height = intro.offsetHeight || window.innerHeight;
+
+  const onResize = () => {
+    W = canvas.width  = intro.offsetWidth  || window.innerWidth;
+    H = canvas.height = intro.offsetHeight || window.innerHeight;
+  };
+  window.addEventListener('resize', onResize, { passive: true });
+
+  /* 72 luxury stars — very subtle, tiny, slow drifting */
+  const stars = Array.from({ length: 72 }, () => ({
+    x:     Math.random(),
+    y:     Math.random(),
+    r:     Math.random() * 0.85 + 0.18,
+    base:  Math.random() * 0.18 + 0.03,
+    amp:   Math.random() * 0.09 + 0.02,
+    phase: Math.random() * Math.PI * 2,
+    freq:  Math.random() * 0.011 + 0.003,
+    vx:    (Math.random() - 0.5) * 0.035,
+    vy:    (Math.random() - 0.5) * 0.035,
+  }));
+
+  let frame = 0;
+  let rafId;
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    frame++;
+
+    for (const s of stars) {
+      s.x += s.vx / W;
+      s.y += s.vy / H;
+      if (s.x < 0) s.x = 1; else if (s.x > 1) s.x = 0;
+      if (s.y < 0) s.y = 1; else if (s.y > 1) s.y = 0;
+
+      const alpha = Math.max(0, s.base + Math.sin(frame * s.freq + s.phase) * s.amp);
+      ctx.beginPath();
+      ctx.arc(s.x * W, s.y * H, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${alpha.toFixed(3)})`;
+      ctx.fill();
+    }
+
+    rafId = requestAnimationFrame(draw);
+  }
+
+  draw();
+
+  return function cleanup() {
+    cancelAnimationFrame(rafId);
+    window.removeEventListener('resize', onResize);
+    if (canvas.parentNode) canvas.parentNode.removeChild(canvas);
+  };
+}
 
 /* ---------- INTRO SCREEN ---------- */
 function runIntro() {
@@ -13,6 +78,9 @@ function runIntro() {
   const body     = document.body;
 
   body.style.overflow = 'hidden';
+
+  /* Launch luxury starlight immediately */
+  const stopStarlight = initStarlightCanvas();
 
   setTimeout(() => logo.classList.add('visible'), 300);
   setTimeout(() => title.classList.add('visible'), 900);
@@ -31,9 +99,10 @@ function runIntro() {
       intro.classList.add('fade-out');
       body.style.overflow = '';
       setTimeout(() => {
+        if (stopStarlight) stopStarlight();
         intro.remove();
         triggerHeroEntrance();
-      }, 900);
+      }, 1000);
     });
   }
 }
@@ -100,7 +169,7 @@ function initScrollAnimations() {
   targets.forEach(el => observer.observe(el));
 }
 
-/* ---------- SMOOTH SCROLL (anchor links) ---------- */
+/* ---------- SMOOTH SCROLL ---------- */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
@@ -182,7 +251,7 @@ function initNotifyForm() {
   });
 }
 
-/* ---------- PARALLAX (hero grid depth) ---------- */
+/* ---------- PARALLAX ---------- */
 function initParallax() {
   const grid = document.querySelector('.hero-grid');
   const glow = document.querySelector('.hero-glow');
