@@ -2,13 +2,14 @@
    OLIVASCALES — script.js  (v2 — Mentorship / Course focus)
    ============================================================ */
 
-/* ---------- INTRO SCREEN (unchanged) ---------- */
+/* ---------- INTRO SCREEN ---------- */
 function runIntro() {
   const intro    = document.getElementById('intro-screen');
   const logo     = document.querySelector('.intro-logo');
   const title    = document.querySelector('.intro-title');
   const subtitle = document.querySelector('.intro-subtitle');
   const progress = document.querySelector('.intro-progress-fill');
+  const enterBtn = document.getElementById('intro-enter-btn');
   const body     = document.body;
 
   body.style.overflow = 'hidden';
@@ -18,14 +19,23 @@ function runIntro() {
   setTimeout(() => subtitle.classList.add('visible'), 1300);
   setTimeout(() => progress.classList.add('loaded'), 600);
 
+  /* Show STEP INSIDE button after elements settle */
   setTimeout(() => {
-    intro.classList.add('fade-out');
-    body.style.overflow = '';
-    setTimeout(() => {
-      intro.remove();
-      triggerHeroEntrance();
-    }, 900);
-  }, 3000);
+    if (enterBtn) enterBtn.classList.add('visible');
+  }, 1800);
+
+  /* Manual enter — only button click triggers site reveal */
+  if (enterBtn) {
+    enterBtn.addEventListener('click', () => {
+      enterBtn.style.pointerEvents = 'none';
+      intro.classList.add('fade-out');
+      body.style.overflow = '';
+      setTimeout(() => {
+        intro.remove();
+        triggerHeroEntrance();
+      }, 900);
+    });
+  }
 }
 
 /* ---------- HERO ENTRANCE ---------- */
