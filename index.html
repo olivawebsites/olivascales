@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ============================================================
+       OLIVASCALES — index.html  (v3 — Instagram + Discord update)
+       ============================================================ -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Olivascales — Apply for access to the blueprint. Direct mentorship. Real strategy. Serious people only." />
   <meta name="theme-color" content="#000000" />
+
   <meta property="og:title" content="Olivascales" />
   <meta property="og:description" content="Apply for access. Direct mentorship. Real strategy." />
   <meta property="og:image" content="assets/og-image.jpg" />
   <meta property="og:type" content="website" />
+
   <title>Olivascales</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
+  <!-- ============================================================
+       INTRO / LOADING SCREEN — DO NOT CHANGE
+       ============================================================ -->
   <div id="intro-screen" role="presentation" aria-hidden="true">
     <div class="intro-scan-line"></div>
     <div class="intro-corner intro-corner--tl"></div>
     <div class="intro-corner intro-corner--tr"></div>
     <div class="intro-corner intro-corner--bl"></div>
     <div class="intro-corner intro-corner--br"></div>
+
     <div class="intro-logo">
       <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="45" cy="45" r="43" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
@@ -45,13 +56,20 @@
         <line x1="23" y1="63" x2="29" y2="63" stroke="rgba(255,255,255,0.5)" stroke-width="1.2"/>
       </svg>
     </div>
+
     <div class="intro-title">Olivascales</div>
     <div class="intro-subtitle">Build Something Bigger</div>
     <div class="intro-progress"><div class="intro-progress-fill"></div></div>
   </div>
+  <!-- / INTRO SCREEN -->
 
+
+  <!-- ============================================================
+       NAVBAR
+       ============================================================ -->
   <nav id="navbar" role="navigation" aria-label="Main navigation">
     <div class="container nav-inner">
+
       <a href="#hero" class="nav-logo" aria-label="Olivascales home">
         <span class="nav-logo-icon">
           <svg width="32" height="32" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -67,12 +85,24 @@
         </span>
         <span class="nav-logo-text">Olivascales</span>
       </a>
+
       <ul class="nav-links">
         <li><a href="#unlock">What You Get</a></li>
         <li><a href="#story">Story</a></li>
         <li><a href="#merch">Merch</a></li>
+        <li>
+          <a href="https://www.instagram.com/olivascales" target="_blank" rel="noopener" class="nav-ig-link" aria-label="Follow on Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            <span>Instagram</span>
+          </a>
+        </li>
         <li><a href="#apply" class="btn btn-ghost" style="padding:10px 22px;">Apply Now</a></li>
       </ul>
+
       <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -84,11 +114,18 @@
     <li><a href="#apply">Apply Now</a></li>
     <li><a href="#story">Story</a></li>
     <li><a href="#merch">Merch</a></li>
+    <li><a href="https://www.instagram.com/olivascales" target="_blank" rel="noopener">Instagram</a></li>
   </ul>
+  <!-- / NAVBAR -->
 
+
+  <!-- ============================================================
+       SECTION 1 — HERO
+       ============================================================ -->
   <section id="hero">
     <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-glow" aria-hidden="true"></div>
+
     <div class="hero-cross-deco" aria-hidden="true">
       <svg width="500" height="500" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="40" y="10" width="10" height="70" rx="1" fill="white"/>
@@ -101,21 +138,26 @@
         <rect x="41.5" y="41.5" width="7" height="7" rx="0.5" fill="white" transform="rotate(45 45 45)"/>
       </svg>
     </div>
+
     <div class="container hero-content">
+
       <div class="hero-eyebrow hero-animate delay-1">
         <div class="hero-eyebrow-line"></div>
         <span class="hero-eyebrow-text">Limited Access — Serious People Only</span>
       </div>
+
       <h1 class="hero-headline hero-animate delay-2">
         The System.<br />
         The Blueprint.<br />
         <span class="highlight">Direct Access.</span>
       </h1>
+
       <p class="hero-sub hero-animate delay-3">
         This isn't a course you buy and forget. This is direct access to the exact strategy
         I used to build from nothing — with guidance, accountability, and real results.
         Not everyone gets in. That's the point.
       </p>
+
       <div class="hero-cta hero-animate delay-4">
         <a href="#apply" class="btn btn-primary">
           Apply for Access
@@ -126,22 +168,35 @@
         <a href="#unlock" class="btn btn-outline">What You Unlock</a>
         <a href="#story-teaser" class="btn btn-ghost">How It Started</a>
       </div>
+
     </div>
+
     <div class="hero-scroll" aria-hidden="true">
       <div class="hero-scroll-line"></div>
       <span class="hero-scroll-text">Scroll</span>
     </div>
   </section>
+  <!-- / HERO -->
+
 
   <div class="divider"></div>
 
+
+  <!-- ============================================================
+       SECTION 2 — WHAT YOU UNLOCK
+       ============================================================ -->
   <section id="unlock">
     <div class="container">
+
       <div class="unlock-header fade-up">
         <span class="section-tag">Inside Olivascales</span>
         <h2>What You<br />Unlock.</h2>
-        <p>Direct guidance. Real strategy. Zero fluff. Everything inside is built to move you forward — not keep you watching forever.</p>
+        <p>
+          Direct guidance. Real strategy. Zero fluff.
+          Everything inside is built to move you forward — not keep you watching forever.
+        </p>
       </div>
+
       <div class="unlock-grid">
 
         <div class="unlock-card fade-up delay-1">
@@ -214,6 +269,7 @@
           <p>Personalized guidance tailored to where you are right now — not generic advice for everyone.</p>
         </div>
 
+        <!-- UPDATED: Private Community — Discord now live -->
         <div class="unlock-card fade-up delay-3">
           <div class="unlock-card-icon" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
@@ -225,8 +281,13 @@
             </svg>
           </div>
           <h4>Private Community</h4>
-          <p>A selective group of serious people all building at the same time. Discord dropping soon.</p>
-          <span class="unlock-card-soon">Coming Soon</span>
+          <p>A selective group of serious people all building together. The community is live — get inside.</p>
+          <a href="https://discord.gg/EAyfhvZAK" target="_blank" rel="noopener" class="unlock-card-btn">
+            Join Discord
+            <svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
 
         <div class="unlock-card fade-up delay-4">
@@ -242,6 +303,8 @@
         </div>
 
       </div>
+      <!-- / unlock-grid -->
+
       <div class="unlock-cta fade-up">
         <a href="#apply" class="btn btn-primary">
           Apply for Access
@@ -251,25 +314,44 @@
         </a>
         <p class="unlock-cta-note">Not a subscription. Not a passive course. This is direct access.</p>
       </div>
+
     </div>
   </section>
+  <!-- / WHAT YOU UNLOCK -->
+
 
   <div class="divider"></div>
 
+
+  <!-- ============================================================
+       SECTION 3 — APPLY FOR ACCESS
+       ============================================================ -->
   <section id="apply">
     <div class="apply-bg" aria-hidden="true"></div>
     <div class="apply-lines" aria-hidden="true"></div>
+
     <div class="container">
       <div class="apply-inner">
+
         <div class="apply-header fade-up">
           <span class="section-tag">Selective Entry</span>
           <h2>Apply for<br />Access.</h2>
-          <p>Spots are limited. I work closely with the people I let in — which means I can't take everyone. Fill out the form below and I'll reach out personally.</p>
+          <p>
+            Spots are limited. I work closely with the people I let in — which means
+            I can't take everyone. Fill out the form below and I'll reach out personally.
+          </p>
         </div>
-        <form id="apply-form" class="apply-form fade-up delay-1" action="https://formspree.io/f/xnjgoywk" method="POST">
+
+        <form
+          id="apply-form"
+          class="apply-form fade-up delay-1"
+          action="https://formspree.io/f/xnjgoywk"
+          method="POST"
+        >
           <input type="hidden" name="_subject" value="New Olivascales Application" />
           <input type="hidden" name="_next" value="https://olivawebsites.github.io/olivascales/?applied=true" />
           <input type="hidden" name="_replyto" value="olivascales@gmail.com" />
+
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="f-name">Full Name</label>
@@ -280,6 +362,7 @@
               <input class="form-input" type="email" id="f-email" name="email" placeholder="your@email.com" required />
             </div>
           </div>
+
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="f-age">Age</label>
@@ -290,6 +373,7 @@
               <input class="form-input" type="text" id="f-current" name="current_situation" placeholder="Job, student, freelancer..." required />
             </div>
           </div>
+
           <div class="form-group form-group--full">
             <label class="form-label" for="f-tried">Have You Tried Making Money Online Before?</label>
             <select class="form-input form-select" id="f-tried" name="tried_online" required>
@@ -300,10 +384,12 @@
               <option value="Currently making money online">Currently making money online</option>
             </select>
           </div>
+
           <div class="form-group form-group--full">
             <label class="form-label" for="f-why">Why Do You Want to Join Olivascales?</label>
             <textarea class="form-input form-textarea" id="f-why" name="why_join" placeholder="Be honest. The more real you are, the better I can help you." rows="4" required></textarea>
           </div>
+
           <div class="form-group form-group--full">
             <label class="form-label" for="f-commit">Are You Willing to Stay Consistent for 30 Days?</label>
             <select class="form-input form-select" id="f-commit" name="commitment" required>
@@ -313,28 +399,62 @@
               <option value="I need to think about it">I need to think about it</option>
             </select>
           </div>
+
           <button type="submit" class="btn btn-primary form-submit">
             Submit Application
             <svg class="btn-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
+
           <p class="form-disclaimer">Only serious people should apply.</p>
+
           <div id="form-success" class="form-success" role="alert" aria-live="polite">
             <span class="form-success-icon">✦</span>
             <strong>Application received.</strong>
             I'll review it personally and reach out within 48 hours.
           </div>
+
         </form>
+        <!-- / apply-form -->
+
+        <!-- INSTAGRAM CTA — below the form -->
+        <div class="ig-strip fade-up">
+          <div class="ig-strip-left">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(136,136,136,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="rgba(136,136,136,0.7)" stroke="none"/>
+            </svg>
+            <div class="ig-strip-text">
+              <span class="ig-strip-label">See the journey</span>
+              <span class="ig-strip-handle">@olivascales</span>
+            </div>
+          </div>
+          <a href="https://www.instagram.com/olivascales" target="_blank" rel="noopener" class="btn btn-ghost ig-strip-btn">
+            Follow on Instagram
+            <svg class="btn-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
       </div>
     </div>
   </section>
+  <!-- / APPLY FOR ACCESS -->
+
 
   <div class="divider"></div>
 
+
+  <!-- ============================================================
+       SECTION 4 — STORY TEASER
+       ============================================================ -->
   <section id="story-teaser">
     <div class="container">
       <div class="teaser-card fade-up">
+
         <div class="teaser-logo" aria-hidden="true">
           <svg width="44" height="44" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="40" y="10" width="10" height="70" rx="1" fill="rgba(255,255,255,0.15)"/>
@@ -345,11 +465,16 @@
             <polygon points="81,41 72,38 72,44" fill="rgba(255,255,255,0.15)"/>
           </svg>
         </div>
+
         <div class="teaser-content">
           <span class="section-tag" style="margin-bottom: 0.8rem;">The Origin</span>
           <h3>Nothing was handed to me.</h3>
-          <p>Humble family. No roadmap. Tried everything — dropshipping, trading, crypto. Stumbled more times than I can count. Then I found the thing that actually worked.</p>
+          <p>
+            Humble family. No roadmap. Tried everything — dropshipping, trading, crypto.
+            Stumbled more times than I can count. Then I found the thing that actually worked.
+          </p>
         </div>
+
         <div class="teaser-action">
           <a href="#story" class="btn btn-outline">
             Read My Story
@@ -358,18 +483,27 @@
             </svg>
           </a>
         </div>
+
       </div>
     </div>
   </section>
+  <!-- / STORY TEASER -->
+
 
   <div class="divider"></div>
 
+
+  <!-- ============================================================
+       SECTION 5 — MY STORY
+       ============================================================ -->
   <section id="story">
     <div class="container">
+
       <div class="story-header fade-up">
         <span class="section-tag">The Full Story</span>
         <h2>Where I<br />Came From.</h2>
       </div>
+
       <div class="story-chapters">
 
         <div class="story-chapter fade-up">
@@ -379,7 +513,13 @@
           </div>
           <div class="chapter-content">
             <h4 class="chapter-title">The Beginning</h4>
-            <p>I didn't grow up with advantages. No trust fund, no connections, no roadmap. My family was humble — the kind of humble where every dollar has a story and you learn early that nothing comes easy. My mother carried us through some of the hardest times imaginable. She worked without complaining, sacrificed without asking for anything back. Watching her is still the reason I don't quit.</p>
+            <p>
+              I didn't grow up with advantages. No trust fund, no connections, no roadmap.
+              My family was humble — the kind of humble where every dollar has a story and
+              you learn early that nothing comes easy. My mother carried us through some of
+              the hardest times imaginable. She worked without complaining, sacrificed without
+              asking for anything back. Watching her is still the reason I don't quit.
+            </p>
           </div>
         </div>
 
@@ -390,7 +530,12 @@
           </div>
           <div class="chapter-content">
             <h4 class="chapter-title">The Hustle</h4>
-            <p>I tried everything to change my situation. Dropshipping — built stores, ran ads, hit walls. Day trading — stared at charts until midnight, gave back the wins. Crypto — rode the highs, felt the lows. I wasn't failing because I was lazy. I was failing because I hadn't found the right arena yet.</p>
+            <p>
+              I tried everything to change my situation. Dropshipping — built stores, ran ads,
+              hit walls. Day trading — stared at charts until midnight, gave back the wins.
+              Crypto — rode the highs, felt the lows. I wasn't failing because I was lazy.
+              I was failing because I hadn't found the right arena yet.
+            </p>
           </div>
         </div>
 
@@ -401,7 +546,12 @@
           </div>
           <div class="chapter-content">
             <h4 class="chapter-title">The Click</h4>
-            <p>Then I came across scaling businesses. And something clicked differently — not just interest, but recognition. Like I had finally found the arena I was supposed to be in. The idea that you could take something that already works and make it grow — that made sense to me like nothing else ever had.</p>
+            <p>
+              Then I came across scaling businesses. And something clicked differently —
+              not just interest, but recognition. Like I had finally found the arena I was
+              supposed to be in. The idea that you could take something that already works
+              and make it grow — that made sense to me like nothing else ever had.
+            </p>
           </div>
         </div>
 
@@ -412,12 +562,19 @@
           </div>
           <div class="chapter-content">
             <h4 class="chapter-title">The Rejection</h4>
-            <p>Getting in wasn't easy. I reached out. I pitched. I showed up. And I got rejected — a lot. Business owners didn't know me. I had no portfolio, no reputation, no credibility yet. Just hunger. Just belief. Just an obsessive willingness to outwork everyone who had more than me.</p>
+            <p>
+              Getting in wasn't easy. I reached out. I pitched. I showed up.
+              And I got rejected — a lot. Business owners didn't know me. I had no portfolio,
+              no reputation, no credibility yet. Just hunger. Just belief.
+              Just an obsessive willingness to outwork everyone who had more than me.
+            </p>
           </div>
         </div>
 
         <div class="story-quote fade-up">
-          <blockquote>"Sometimes the only thing standing between you and everything is one yes."</blockquote>
+          <blockquote>
+            "Sometimes the only thing standing between you and everything is one yes."
+          </blockquote>
         </div>
 
         <div class="story-chapter fade-up">
@@ -427,7 +584,12 @@
           </div>
           <div class="chapter-content">
             <h4 class="chapter-title">The Turn</h4>
-            <p>Then I got one yes. One person decided to bet on me. I treated that opportunity like it was the last door on earth. I over-delivered. I stayed late. I obsessed. That one yes turned into two. Two turned into five. And five is when I finally understood — this is real. There is no ceiling on this.</p>
+            <p>
+              Then I got one yes. One person decided to bet on me. I treated that opportunity
+              like it was the last door on earth. I over-delivered. I stayed late. I obsessed.
+              That one yes turned into two. Two turned into five.
+              And five is when I finally understood — this is real. There is no ceiling on this.
+            </p>
           </div>
         </div>
 
@@ -438,11 +600,18 @@
           </div>
           <div class="chapter-content">
             <h4 class="chapter-title">Why Olivascales</h4>
-            <p>I built Olivascales because I know I'm not the only one who's been in that place — trying hard, getting rejected, wondering if it's ever going to happen. It does happen. But only if you don't stop before it does. This is the system I wish I had. Now I'm handing it to the people who are ready for it.</p>
+            <p>
+              I built Olivascales because I know I'm not the only one who's been in that place —
+              trying hard, getting rejected, wondering if it's ever going to happen. It does happen.
+              But only if you don't stop before it does.
+              This is the system I wish I had. Now I'm handing it to the people who are ready for it.
+            </p>
           </div>
         </div>
 
       </div>
+      <!-- / story-chapters -->
+
       <div class="story-cta fade-up">
         <a href="#apply" class="btn btn-primary">
           Apply for Access
@@ -451,19 +620,35 @@
           </svg>
         </a>
       </div>
+
     </div>
   </section>
+  <!-- / MY STORY -->
+
 
   <div class="divider"></div>
 
+
+  <!-- ============================================================
+       SECTION 6 — MERCH COMING SOON
+       ============================================================ -->
   <section id="merch">
     <div class="container">
+
       <div class="merch-header">
         <span class="section-tag fade-up">Exclusive Drops</span>
-        <h2 class="fade-up delay-1">Merch<br /><span class="dim">Coming Soon</span></h2>
-        <p class="fade-up delay-2">This isn't just clothing. It's armor. Worn by the ones who decided they weren't done yet.</p>
+        <h2 class="fade-up delay-1">
+          Merch<br />
+          <span class="dim">Coming Soon</span>
+        </h2>
+        <p class="fade-up delay-2">
+          This isn't just clothing. It's armor.
+          Worn by the ones who decided they weren't done yet.
+        </p>
       </div>
+
       <div class="merch-grid">
+
         <div class="merch-card">
           <div class="merch-card-bg">
             <div class="merch-card-logo">
@@ -485,6 +670,7 @@
           </div>
           <span class="merch-card-badge">Soon</span>
         </div>
+
         <div class="merch-card">
           <div class="merch-card-bg" style="background: linear-gradient(135deg, #0d0d0d, #1c1c1c);">
             <div class="merch-card-logo">
@@ -504,6 +690,7 @@
           </div>
           <span class="merch-card-badge">Soon</span>
         </div>
+
         <div class="merch-card">
           <div class="merch-card-bg" style="background: linear-gradient(135deg, #131313, #1f1f1f);">
             <div class="merch-card-logo">
@@ -525,20 +712,31 @@
           </div>
           <span class="merch-card-badge">Soon</span>
         </div>
+
       </div>
+
       <div class="merch-notify fade-up">
         <p>Be the first to know when the first drop lands. No spam. Just the signal.</p>
         <form id="notify-form" novalidate>
           <input type="email" id="notify-email" class="notify-input" placeholder="your@email.com" autocomplete="email" aria-label="Email for merch notifications" />
           <button type="submit" class="notify-btn">Notify Me</button>
         </form>
-        <p id="notify-success" class="notify-success" role="alert" aria-live="polite">✦ &nbsp; You're in. We'll reach out when it drops.</p>
+        <p id="notify-success" class="notify-success" role="alert" aria-live="polite">
+          ✦ &nbsp; You're in. We'll reach out when it drops.
+        </p>
       </div>
+
     </div>
   </section>
+  <!-- / MERCH -->
 
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
   <footer id="footer">
     <div class="container">
+
       <div class="footer-inner">
         <div class="footer-logo">
           <svg width="28" height="28" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -551,21 +749,27 @@
           </svg>
           <span class="footer-logo-text">Olivascales</span>
         </div>
+
         <ul class="footer-links">
           <li><a href="#unlock">What You Get</a></li>
           <li><a href="#apply">Apply</a></li>
           <li><a href="#story">Story</a></li>
           <li><a href="#merch">Merch</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://discord.gg/EAyfhvZAK" target="_blank" rel="noopener">Discord</a></li>
+          <li><a href="https://www.instagram.com/olivascales" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
       </div>
+
       <div class="footer-bottom">
         <p class="footer-copy">© 2025 Olivascales. All rights reserved.</p>
         <p class="footer-tagline">Built from nothing. Made for everything.</p>
       </div>
+
     </div>
   </footer>
+  <!-- / FOOTER -->
 
   <script src="script.js"></script>
+
 </body>
 </html>
