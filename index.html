@@ -25,175 +25,31 @@
 <body>
 
   <!-- ============================================================
-       INTRO / CINEMATIC GATES SCREEN
+       INTRO SCREEN — cinematic entrance
        ============================================================ -->
   <div id="intro-screen" role="presentation" aria-hidden="true">
 
-    <!-- ---- CINEMATIC SCENE: 3D approach + clouds + gates (zooms toward viewer) ---- -->
-    <div class="intro-scene" aria-hidden="true">
+    <!-- ---- ATMOSPHERIC CLOUDS / FOG ---- -->
+    <div class="intro-clouds" aria-hidden="true">
+      <div class="intro-cloud" style="--cx:6%;--cy:14%;--cw:500px;--ch:210px;--cdur:9s;--cdel:0s;--cop:0.22;--cpx:0.8;--cpy:0.35;"></div>
+      <div class="intro-cloud" style="--cx:60%;--cy:10%;--cw:540px;--ch:190px;--cdur:11s;--cdel:2.1s;--cop:0.18;--cpx:0.6;--cpy:0.25;"></div>
+      <div class="intro-cloud" style="--cx:-5%;--cy:42%;--cw:460px;--ch:215px;--cdur:8.5s;--cdel:1.0s;--cop:0.20;--cpx:1.0;--cpy:0.4;"></div>
+      <div class="intro-cloud" style="--cx:70%;--cy:50%;--cw:510px;--ch:195px;--cdur:12s;--cdel:3.2s;--cop:0.17;--cpx:0.7;--cpy:0.3;"></div>
+      <div class="intro-cloud" style="--cx:20%;--cy:65%;--cw:560px;--ch:185px;--cdur:8s;--cdel:0.4s;--cop:0.24;--cpx:1.2;--cpy:0.5;"></div>
+      <div class="intro-cloud" style="--cx:54%;--cy:72%;--cw:490px;--ch:200px;--cdur:13s;--cdel:4.5s;--cop:0.19;--cpx:0.9;--cpy:0.38;"></div>
+      <div class="intro-cloud" style="--cx:34%;--cy:2%;--cw:580px;--ch:170px;--cdur:10s;--cdel:1.8s;--cop:0.15;--cpx:0.5;--cpy:0.2;"></div>
+      <div class="intro-cloud" style="--cx:78%;--cy:28%;--cw:450px;--ch:195px;--cdur:9.5s;--cdel:2.8s;--cop:0.16;--cpx:0.8;--cpy:0.32;"></div>
+    </div>
 
-      <!-- Atmospheric clouds — CSS-animated, drift toward viewer -->
-      <div class="intro-clouds" aria-hidden="true">
-        <div class="intro-cloud" style="--cx:7%;--cy:32%;--cw:500px;--ch:240px;--cdur:9s;--cdel:0s;--cop:0.36;"></div>
-        <div class="intro-cloud" style="--cx:64%;--cy:18%;--cw:560px;--ch:220px;--cdur:11s;--cdel:1.6s;--cop:0.30;"></div>
-        <div class="intro-cloud" style="--cx:27%;--cy:64%;--cw:440px;--ch:210px;--cdur:8s;--cdel:0.5s;--cop:0.28;"></div>
-        <div class="intro-cloud" style="--cx:75%;--cy:71%;--cw:480px;--ch:230px;--cdur:13s;--cdel:2.2s;--cop:0.24;"></div>
-        <div class="intro-cloud" style="--cx:44%;--cy:7%;--cw:620px;--ch:165px;--cdur:10s;--cdel:0.2s;--cop:0.19;"></div>
-        <div class="intro-cloud" style="--cx:2%;--cy:80%;--cw:400px;--ch:185px;--cdur:12s;--cdel:3.5s;--cop:0.22;"></div>
-      </div>
+    <!-- ---- ATMOSPHERIC OVERLAYS ---- -->
+    <div class="intro-center-glow" aria-hidden="true"></div>
+    <div class="intro-ground-fog"  aria-hidden="true"></div>
+    <div class="intro-light-shaft" aria-hidden="true"></div>
 
-      <!-- LEFT gate panel — slides left on .open -->
-      <div class="intro-gate-left" aria-hidden="true">
-        <svg class="gate-svg gate-svg--left" viewBox="0 0 360 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMid meet" aria-hidden="true">
-          <defs>
-            <linearGradient id="gmL" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%"   stop-color="#383f4a"/>
-              <stop offset="28%"  stop-color="#7e8e9c"/>
-              <stop offset="50%"  stop-color="#aebbc6"/>
-              <stop offset="72%"  stop-color="#7e8e9c"/>
-              <stop offset="100%" stop-color="#383f4a"/>
-            </linearGradient>
-            <linearGradient id="gbL" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%"   stop-color="#4c5862"/>
-              <stop offset="50%"  stop-color="#94a2ad"/>
-              <stop offset="100%" stop-color="#4c5862"/>
-            </linearGradient>
-          </defs>
-          <!-- Outer frame posts -->
-          <rect x="0"   y="0" width="13" height="900" fill="url(#gmL)"/>
-          <rect x="347" y="0" width="13" height="900" fill="url(#gmL)"/>
-          <!-- Sub-cap above top rail -->
-          <rect x="0" y="60"  width="360" height="5"  fill="url(#gmL)" opacity="0.38"/>
-          <!-- Top rail -->
-          <rect x="0" y="120" width="360" height="11" rx="1" fill="url(#gmL)"/>
-          <!-- Mid rail 1 -->
-          <rect x="0" y="416" width="360" height="7"  rx="1" fill="url(#gmL)" opacity="0.82"/>
-          <!-- Mid rail 2 -->
-          <rect x="0" y="616" width="360" height="5"  rx="1" fill="url(#gmL)" opacity="0.60"/>
-          <!-- Bottom rail -->
-          <rect x="0" y="832" width="360" height="11" rx="1" fill="url(#gmL)"/>
+    <!-- ---- VIGNETTE (darkens edges for cinematic framing) ---- -->
+    <div class="intro-vignette" aria-hidden="true"></div>
 
-          <!-- 7 Pickets with spear tips (hinge→latch: left→right in SVG) -->
-          <!-- Picket 1 x=46 -->
-          <polygon points="46,13 38,79 54,79"  fill="url(#gbL)"/>
-          <rect x="39"  y="74" width="14" height="768" rx="1" fill="url(#gbL)"/>
-          <!-- Picket 2 x=96 -->
-          <polygon points="96,19 88,79 104,79" fill="url(#gbL)"/>
-          <rect x="89"  y="74" width="14" height="768" rx="1" fill="url(#gbL)"/>
-          <!-- Picket 3 x=146 -->
-          <polygon points="146,13 138,79 154,79" fill="url(#gbL)"/>
-          <rect x="139" y="74" width="14" height="768" rx="1" fill="url(#gbL)"/>
-          <!-- CENTER picket x=187 (tallest, thicker) -->
-          <polygon points="187,1 176,79 198,79"  fill="url(#gbL)"/>
-          <rect x="177" y="74" width="22" height="768" rx="1" fill="url(#gbL)"/>
-          <!-- Picket 5 x=226 -->
-          <polygon points="226,13 218,79 234,79" fill="url(#gbL)"/>
-          <rect x="219" y="74" width="14" height="768" rx="1" fill="url(#gbL)"/>
-          <!-- Picket 6 x=276 -->
-          <polygon points="276,19 268,79 284,79" fill="url(#gbL)"/>
-          <rect x="269" y="74" width="14" height="768" rx="1" fill="url(#gbL)"/>
-          <!-- Picket 7 x=326 -->
-          <polygon points="326,13 318,79 334,79" fill="url(#gbL)"/>
-          <rect x="319" y="74" width="14" height="768" rx="1" fill="url(#gbL)"/>
-
-          <!-- Decorative medallion (upper zone, between top & mid rail 1) -->
-          <circle cx="180" cy="268" r="37" stroke="url(#gmL)" stroke-width="2.5" fill="none"/>
-          <circle cx="180" cy="268" r="24" stroke="url(#gmL)" stroke-width="1.5" fill="none" opacity="0.62"/>
-          <circle cx="180" cy="268" r="6"  fill="url(#gbL)" opacity="0.72"/>
-          <line x1="180" y1="231" x2="180" y2="305" stroke="url(#gmL)" stroke-width="1.5" opacity="0.44"/>
-          <line x1="143" y1="268" x2="217" y2="268" stroke="url(#gmL)" stroke-width="1.5" opacity="0.44"/>
-
-          <!-- Corner scrollwork on top rail -->
-          <path d="M19,129 Q19,148 35,148 Q49,148 49,138 Q49,129 35,129" stroke="#687888" stroke-width="1.5" fill="none"/>
-          <path d="M341,129 Q341,148 325,148 Q311,148 311,138 Q311,129 325,129" stroke="#687888" stroke-width="1.5" fill="none"/>
-
-          <!-- Latch ornament at right edge (= screen center seam) -->
-          <polygon points="355,443 349,451 355,459 360,451" fill="url(#gbL)" opacity="0.88"/>
-          <rect x="354" y="376" width="6" height="150" rx="2" fill="url(#gmL)" opacity="0.44"/>
-        </svg>
-      </div>
-
-      <!-- RIGHT gate panel — slides right on .open (mirror of left) -->
-      <div class="intro-gate-right" aria-hidden="true">
-        <svg class="gate-svg gate-svg--right" viewBox="0 0 360 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
-          <defs>
-            <linearGradient id="gmR" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%"   stop-color="#383f4a"/>
-              <stop offset="28%"  stop-color="#7e8e9c"/>
-              <stop offset="50%"  stop-color="#aebbc6"/>
-              <stop offset="72%"  stop-color="#7e8e9c"/>
-              <stop offset="100%" stop-color="#383f4a"/>
-            </linearGradient>
-            <linearGradient id="gbR" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%"   stop-color="#4c5862"/>
-              <stop offset="50%"  stop-color="#94a2ad"/>
-              <stop offset="100%" stop-color="#4c5862"/>
-            </linearGradient>
-          </defs>
-          <!-- Outer frame posts (latch LEFT = screen center, hinge RIGHT) -->
-          <rect x="0"   y="0" width="13" height="900" fill="url(#gmR)"/>
-          <rect x="347" y="0" width="13" height="900" fill="url(#gmR)"/>
-          <rect x="0" y="60"  width="360" height="5"  fill="url(#gmR)" opacity="0.38"/>
-          <rect x="0" y="120" width="360" height="11" rx="1" fill="url(#gmR)"/>
-          <rect x="0" y="416" width="360" height="7"  rx="1" fill="url(#gmR)" opacity="0.82"/>
-          <rect x="0" y="616" width="360" height="5"  rx="1" fill="url(#gmR)" opacity="0.60"/>
-          <rect x="0" y="832" width="360" height="11" rx="1" fill="url(#gmR)"/>
-
-          <!-- 7 Pickets mirrored (latch→hinge: left→right) -->
-          <!-- Picket 1 x=34 (mirror of 326) -->
-          <polygon points="34,13 26,79 42,79"  fill="url(#gbR)"/>
-          <rect x="27"  y="74" width="14" height="768" rx="1" fill="url(#gbR)"/>
-          <!-- Picket 2 x=84 -->
-          <polygon points="84,19 76,79 92,79"  fill="url(#gbR)"/>
-          <rect x="77"  y="74" width="14" height="768" rx="1" fill="url(#gbR)"/>
-          <!-- Picket 3 x=134 -->
-          <polygon points="134,13 126,79 142,79" fill="url(#gbR)"/>
-          <rect x="127" y="74" width="14" height="768" rx="1" fill="url(#gbR)"/>
-          <!-- CENTER picket x=173 (mirror of 187) -->
-          <polygon points="173,1 162,79 184,79"  fill="url(#gbR)"/>
-          <rect x="163" y="74" width="22" height="768" rx="1" fill="url(#gbR)"/>
-          <!-- Picket 5 x=214 -->
-          <polygon points="214,13 206,79 222,79" fill="url(#gbR)"/>
-          <rect x="207" y="74" width="14" height="768" rx="1" fill="url(#gbR)"/>
-          <!-- Picket 6 x=264 -->
-          <polygon points="264,19 256,79 272,79" fill="url(#gbR)"/>
-          <rect x="257" y="74" width="14" height="768" rx="1" fill="url(#gbR)"/>
-          <!-- Picket 7 x=314 -->
-          <polygon points="314,13 306,79 322,79" fill="url(#gbR)"/>
-          <rect x="307" y="74" width="14" height="768" rx="1" fill="url(#gbR)"/>
-
-          <!-- Decorative medallion (mirrored center = same x=180) -->
-          <circle cx="180" cy="268" r="37" stroke="url(#gmR)" stroke-width="2.5" fill="none"/>
-          <circle cx="180" cy="268" r="24" stroke="url(#gmR)" stroke-width="1.5" fill="none" opacity="0.62"/>
-          <circle cx="180" cy="268" r="6"  fill="url(#gbR)" opacity="0.72"/>
-          <line x1="180" y1="231" x2="180" y2="305" stroke="url(#gmR)" stroke-width="1.5" opacity="0.44"/>
-          <line x1="143" y1="268" x2="217" y2="268" stroke="url(#gmR)" stroke-width="1.5" opacity="0.44"/>
-
-          <!-- Corner scrollwork -->
-          <path d="M19,129 Q19,148 35,148 Q49,148 49,138 Q49,129 35,129"   stroke="#687888" stroke-width="1.5" fill="none"/>
-          <path d="M341,129 Q341,148 325,148 Q311,148 311,138 Q311,129 325,129" stroke="#687888" stroke-width="1.5" fill="none"/>
-
-          <!-- Latch ornament at LEFT edge (= screen center seam) -->
-          <polygon points="5,443 11,451 5,459 0,451" fill="url(#gbR)" opacity="0.88"/>
-          <rect x="0" y="376" width="6" height="150" rx="2" fill="url(#gmR)" opacity="0.44"/>
-        </svg>
-      </div>
-
-      <!-- Gate seam glow — thin silver light at center seam -->
-      <div class="intro-gate-seam" aria-hidden="true"></div>
-
-    </div><!-- / .intro-scene -->
-
-    <!-- ---- ATMOSPHERIC OVERLAYS (z above scene, below content) ---- -->
-    <div class="intro-ambient" aria-hidden="true"></div>
-    <div class="intro-light-sweep" aria-hidden="true"></div>
-    <div class="intro-scan-line"></div>
-    <div class="intro-corner intro-corner--tl"></div>
-    <div class="intro-corner intro-corner--tr"></div>
-    <div class="intro-corner intro-corner--bl"></div>
-    <div class="intro-corner intro-corner--br"></div>
-
-    <!-- ---- CONTENT (revealed after gates open) ---- -->
+    <!-- ---- CONTENT ---- -->
     <div class="intro-logo">
       <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="45" cy="45" r="43" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
@@ -576,7 +432,6 @@
 
         </form>
 
-        <!-- INSTAGRAM CTA — below the form -->
         <div class="ig-strip fade-up">
           <div class="ig-strip-left">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(136,136,136,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
