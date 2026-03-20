@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- ============================================================
-       OLIVASCALES — index.html  (v6 — restructured page flow)
+       OLIVASCALES — index.html  (v3 — Instagram + Discord update)
        ============================================================ -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,13 +25,154 @@
 <body>
 
   <!-- ============================================================
-       INTRO / LOADING SCREEN — DO NOT CHANGE
+       INTRO / CINEMATIC GATES SCREEN
        ============================================================ -->
   <div id="intro-screen" role="presentation" aria-hidden="true">
-    <!-- gate panels — slide outward on load -->
-    <div class="intro-gate-left"  aria-hidden="true"></div>
-    <div class="intro-gate-right" aria-hidden="true"></div>
-    <!-- starlight canvas injected by JS -->
+
+    <!-- ---- CINEMATIC SCENE: 3D approach + clouds + gates (zooms toward viewer) ---- -->
+    <div class="intro-scene" aria-hidden="true">
+
+      <!-- Atmospheric clouds — CSS-animated, drift toward viewer -->
+      <div class="intro-clouds" aria-hidden="true">
+        <div class="intro-cloud" style="--cx:7%;--cy:32%;--cw:500px;--ch:240px;--cdur:9s;--cdel:0s;--cop:0.36;"></div>
+        <div class="intro-cloud" style="--cx:64%;--cy:18%;--cw:560px;--ch:220px;--cdur:11s;--cdel:1.6s;--cop:0.30;"></div>
+        <div class="intro-cloud" style="--cx:27%;--cy:64%;--cw:440px;--ch:210px;--cdur:8s;--cdel:0.5s;--cop:0.28;"></div>
+        <div class="intro-cloud" style="--cx:75%;--cy:71%;--cw:480px;--ch:230px;--cdur:13s;--cdel:2.2s;--cop:0.24;"></div>
+        <div class="intro-cloud" style="--cx:44%;--cy:7%;--cw:620px;--ch:165px;--cdur:10s;--cdel:0.2s;--cop:0.19;"></div>
+        <div class="intro-cloud" style="--cx:2%;--cy:80%;--cw:400px;--ch:185px;--cdur:12s;--cdel:3.5s;--cop:0.22;"></div>
+      </div>
+
+      <!-- LEFT gate panel — slides left on .open -->
+      <div class="intro-gate-left" aria-hidden="true">
+        <svg class="gate-svg gate-svg--left" viewBox="0 0 360 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMid meet" aria-hidden="true">
+          <defs>
+            <linearGradient id="gmL" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="#383f4a"/>
+              <stop offset="28%"  stop-color="#7e8e9c"/>
+              <stop offset="50%"  stop-color="#aebbc6"/>
+              <stop offset="72%"  stop-color="#7e8e9c"/>
+              <stop offset="100%" stop-color="#383f4a"/>
+            </linearGradient>
+            <linearGradient id="gbL" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="#4c5862"/>
+              <stop offset="50%"  stop-color="#94a2ad"/>
+              <stop offset="100%" stop-color="#4c5862"/>
+            </linearGradient>
+          </defs>
+          <!-- Outer frame posts -->
+          <rect x="0"   y="0" width="13" height="900" fill="url(#gmL)"/>
+          <rect x="347" y="0" width="13" height="900" fill="url(#gmL)"/>
+          <!-- Sub-cap above top rail -->
+          <rect x="0" y="60"  width="360" height="5"  fill="url(#gmL)" opacity="0.38"/>
+          <!-- Top rail -->
+          <rect x="0" y="120" width="360" height="11" rx="1" fill="url(#gmL)"/>
+          <!-- Mid rail 1 -->
+          <rect x="0" y="416" width="360" height="7"  rx="1" fill="url(#gmL)" opacity="0.82"/>
+          <!-- Mid rail 2 -->
+          <rect x="0" y="616" width="360" height="5"  rx="1" fill="url(#gmL)" opacity="0.60"/>
+          <!-- Bottom rail -->
+          <rect x="0" y="832" width="360" height="11" rx="1" fill="url(#gmL)"/>
+
+          <!-- 7 Pickets with spear tips -->
+          <polygon points="46,13 38,79 54,79"  fill="url(#gbL)"/>
+          <rect x="39"  y="74" width="14" height="768" rx="1" fill="url(#gbL)"/>
+          <polygon points="96,19 88,79 104,79" fill="url(#gbL)"/>
+          <rect x="89"  y="74" width="14" height="768" rx="1" fill="url(#gbL)"/>
+          <polygon points="146,13 138,79 154,79" fill="url(#gbL)"/>
+          <rect x="139" y="74" width="14" height="768" rx="1" fill="url(#gbL)"/>
+          <!-- CENTER picket (tallest, thicker) -->
+          <polygon points="187,1 176,79 198,79"  fill="url(#gbL)"/>
+          <rect x="177" y="74" width="22" height="768" rx="1" fill="url(#gbL)"/>
+          <polygon points="226,13 218,79 234,79" fill="url(#gbL)"/>
+          <rect x="219" y="74" width="14" height="768" rx="1" fill="url(#gbL)"/>
+          <polygon points="276,19 268,79 284,79" fill="url(#gbL)"/>
+          <rect x="269" y="74" width="14" height="768" rx="1" fill="url(#gbL)"/>
+          <polygon points="326,13 318,79 334,79" fill="url(#gbL)"/>
+          <rect x="319" y="74" width="14" height="768" rx="1" fill="url(#gbL)"/>
+
+          <!-- Decorative medallion -->
+          <circle cx="180" cy="268" r="37" stroke="url(#gmL)" stroke-width="2.5" fill="none"/>
+          <circle cx="180" cy="268" r="24" stroke="url(#gmL)" stroke-width="1.5" fill="none" opacity="0.62"/>
+          <circle cx="180" cy="268" r="6"  fill="url(#gbL)" opacity="0.72"/>
+          <line x1="180" y1="231" x2="180" y2="305" stroke="url(#gmL)" stroke-width="1.5" opacity="0.44"/>
+          <line x1="143" y1="268" x2="217" y2="268" stroke="url(#gmL)" stroke-width="1.5" opacity="0.44"/>
+
+          <!-- Corner scrollwork on top rail -->
+          <path d="M19,129 Q19,148 35,148 Q49,148 49,138 Q49,129 35,129" stroke="#687888" stroke-width="1.5" fill="none"/>
+          <path d="M341,129 Q341,148 325,148 Q311,148 311,138 Q311,129 325,129" stroke="#687888" stroke-width="1.5" fill="none"/>
+
+          <!-- Latch ornament (right edge = screen center) -->
+          <polygon points="355,443 349,451 355,459 360,451" fill="url(#gbL)" opacity="0.88"/>
+          <rect x="354" y="376" width="6" height="150" rx="2" fill="url(#gmL)" opacity="0.44"/>
+        </svg>
+      </div>
+
+      <!-- RIGHT gate panel — slides right on .open (mirror of left) -->
+      <div class="intro-gate-right" aria-hidden="true">
+        <svg class="gate-svg gate-svg--right" viewBox="0 0 360 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid meet" aria-hidden="true">
+          <defs>
+            <linearGradient id="gmR" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="#383f4a"/>
+              <stop offset="28%"  stop-color="#7e8e9c"/>
+              <stop offset="50%"  stop-color="#aebbc6"/>
+              <stop offset="72%"  stop-color="#7e8e9c"/>
+              <stop offset="100%" stop-color="#383f4a"/>
+            </linearGradient>
+            <linearGradient id="gbR" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="#4c5862"/>
+              <stop offset="50%"  stop-color="#94a2ad"/>
+              <stop offset="100%" stop-color="#4c5862"/>
+            </linearGradient>
+          </defs>
+          <!-- Frame posts (latch LEFT = screen center, hinge RIGHT) -->
+          <rect x="0"   y="0" width="13" height="900" fill="url(#gmR)"/>
+          <rect x="347" y="0" width="13" height="900" fill="url(#gmR)"/>
+          <rect x="0" y="60"  width="360" height="5"  fill="url(#gmR)" opacity="0.38"/>
+          <rect x="0" y="120" width="360" height="11" rx="1" fill="url(#gmR)"/>
+          <rect x="0" y="416" width="360" height="7"  rx="1" fill="url(#gmR)" opacity="0.82"/>
+          <rect x="0" y="616" width="360" height="5"  rx="1" fill="url(#gmR)" opacity="0.60"/>
+          <rect x="0" y="832" width="360" height="11" rx="1" fill="url(#gmR)"/>
+
+          <!-- 7 Pickets mirrored -->
+          <polygon points="34,13 26,79 42,79"  fill="url(#gbR)"/>
+          <rect x="27"  y="74" width="14" height="768" rx="1" fill="url(#gbR)"/>
+          <polygon points="84,19 76,79 92,79"  fill="url(#gbR)"/>
+          <rect x="77"  y="74" width="14" height="768" rx="1" fill="url(#gbR)"/>
+          <polygon points="134,13 126,79 142,79" fill="url(#gbR)"/>
+          <rect x="127" y="74" width="14" height="768" rx="1" fill="url(#gbR)"/>
+          <!-- CENTER picket (mirror of 187) -->
+          <polygon points="173,1 162,79 184,79"  fill="url(#gbR)"/>
+          <rect x="163" y="74" width="22" height="768" rx="1" fill="url(#gbR)"/>
+          <polygon points="214,13 206,79 222,79" fill="url(#gbR)"/>
+          <rect x="207" y="74" width="14" height="768" rx="1" fill="url(#gbR)"/>
+          <polygon points="264,19 256,79 272,79" fill="url(#gbR)"/>
+          <rect x="257" y="74" width="14" height="768" rx="1" fill="url(#gbR)"/>
+          <polygon points="314,13 306,79 322,79" fill="url(#gbR)"/>
+          <rect x="307" y="74" width="14" height="768" rx="1" fill="url(#gbR)"/>
+
+          <!-- Medallion -->
+          <circle cx="180" cy="268" r="37" stroke="url(#gmR)" stroke-width="2.5" fill="none"/>
+          <circle cx="180" cy="268" r="24" stroke="url(#gmR)" stroke-width="1.5" fill="none" opacity="0.62"/>
+          <circle cx="180" cy="268" r="6"  fill="url(#gbR)" opacity="0.72"/>
+          <line x1="180" y1="231" x2="180" y2="305" stroke="url(#gmR)" stroke-width="1.5" opacity="0.44"/>
+          <line x1="143" y1="268" x2="217" y2="268" stroke="url(#gmR)" stroke-width="1.5" opacity="0.44"/>
+
+          <!-- Corner scrollwork -->
+          <path d="M19,129 Q19,148 35,148 Q49,148 49,138 Q49,129 35,129"   stroke="#687888" stroke-width="1.5" fill="none"/>
+          <path d="M341,129 Q341,148 325,148 Q311,148 311,138 Q311,129 325,129" stroke="#687888" stroke-width="1.5" fill="none"/>
+
+          <!-- Latch ornament (LEFT edge = screen center) -->
+          <polygon points="5,443 11,451 5,459 0,451" fill="url(#gbR)" opacity="0.88"/>
+          <rect x="0" y="376" width="6" height="150" rx="2" fill="url(#gmR)" opacity="0.44"/>
+        </svg>
+      </div>
+
+      <!-- Gate seam glow — thin silver light at center seam -->
+      <div class="intro-gate-seam" aria-hidden="true"></div>
+
+    </div><!-- / .intro-scene -->
+
+    <!-- ---- ATMOSPHERIC OVERLAYS ---- -->
     <div class="intro-ambient" aria-hidden="true"></div>
     <div class="intro-light-sweep" aria-hidden="true"></div>
     <div class="intro-scan-line"></div>
@@ -40,6 +181,7 @@
     <div class="intro-corner intro-corner--bl"></div>
     <div class="intro-corner intro-corner--br"></div>
 
+    <!-- ---- CONTENT (revealed after gates open) ---- -->
     <div class="intro-logo">
       <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="45" cy="45" r="43" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
@@ -67,6 +209,7 @@
     <div class="intro-subtitle">Build Something Bigger</div>
     <button id="intro-enter-btn" class="intro-enter-btn" aria-label="Enter the site">Step Inside</button>
     <div class="intro-progress"><div class="intro-progress-fill"></div></div>
+
   </div>
   <!-- / INTRO SCREEN -->
 
@@ -95,8 +238,7 @@
 
       <ul class="nav-links">
         <li><a href="#unlock">What You Get</a></li>
-        <li><a href="#community">Community</a></li>
-        <li><a href="#story">My Story</a></li>
+        <li><a href="#story">Story</a></li>
         <li><a href="#merch">Merch</a></li>
         <li>
           <a href="https://www.instagram.com/olivascales" target="_blank" rel="noopener" class="nav-ig-link" aria-label="Follow on Instagram">
@@ -120,8 +262,7 @@
   <ul class="nav-mobile" id="nav-mobile" role="menu">
     <li><a href="#unlock">What You Get</a></li>
     <li><a href="#apply">Apply Now</a></li>
-    <li><a href="#community">Community</a></li>
-    <li><a href="#story">My Story</a></li>
+    <li><a href="#story">Story</a></li>
     <li><a href="#merch">Merch</a></li>
     <li><a href="https://www.instagram.com/olivascales" target="_blank" rel="noopener">Instagram</a></li>
   </ul>
@@ -175,7 +316,7 @@
           </svg>
         </a>
         <a href="#unlock" class="btn btn-outline">What You Unlock</a>
-        <a href="#story" class="btn btn-ghost">How It Started</a>
+        <a href="#story-teaser" class="btn btn-ghost">How It Started</a>
       </div>
 
     </div>
@@ -259,12 +400,12 @@
               <rect x="5" y="4" width="13" height="17" rx="1" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
               <line x1="8" y1="9" x2="15" y2="9" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
               <line x1="8" y1="13" x2="15" y2="13" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-linecap="round"/>
-              <rect x="14" y="14" width="9" height="9" rx="1" fill="#111111" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
+              <rect x="14" y="14" width="9" height="9" rx="1" fill="var(--dark2)" stroke="rgba(255,255,255,0.4)" stroke-width="1.2"/>
               <line x1="18.5" y1="16.5" x2="18.5" y2="20.5" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
               <line x1="16.5" y1="18.5" x2="20.5" y2="18.5" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
             </svg>
           </div>
-          <h4>Scripts &amp; Templates</h4>
+          <h4>Scripts & Templates</h4>
           <p>Done-for-you outreach scripts, pitch decks, and delivery frameworks you can use from day one.</p>
         </div>
 
@@ -306,12 +447,11 @@
               <circle cx="14" cy="14" r="2" fill="white"/>
             </svg>
           </div>
-          <h4>Accountability &amp; Direction</h4>
+          <h4>Accountability & Direction</h4>
           <p>Check-ins, real feedback, and direction when you're stuck — so you don't lose momentum.</p>
         </div>
 
       </div>
-      <!-- / unlock-grid -->
 
       <div class="unlock-cta fade-up">
         <a href="#apply" class="btn btn-primary">
@@ -418,15 +558,13 @@
           <p class="form-disclaimer">Only serious people should apply.</p>
 
           <div id="form-success" class="form-success" role="alert" aria-live="polite">
-            <span class="form-success-icon">&#10022;</span>
+            <span class="form-success-icon">✦</span>
             <strong>Application received.</strong>
             I'll review it personally and reach out within 48 hours.
           </div>
 
         </form>
-        <!-- / apply-form -->
 
-        <!-- INSTAGRAM CTA — below the form -->
         <div class="ig-strip fade-up">
           <div class="ig-strip-left">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(136,136,136,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -450,85 +588,50 @@
       </div>
     </div>
   </section>
-  <!-- / APPLY FOR ACCESS -->
 
 
   <div class="divider"></div>
 
 
   <!-- ============================================================
-       SECTION 4 — PRIVATE COMMUNITY
+       SECTION 4 — STORY TEASER
        ============================================================ -->
-  <section id="community">
+  <section id="story-teaser">
     <div class="container">
+      <div class="teaser-card fade-up">
 
-      <div class="community-header fade-up">
-        <span class="section-tag">Private Community</span>
-        <h2>The Room<br />Changes You.</h2>
-        <p>
-          You become who you're around. Inside Olivascales, you're around people who are
-          actually building — sharing wins, holding each other accountable, and moving.
-          This isn't a group chat. This is your network.
-        </p>
-      </div>
-
-      <div class="community-grid">
-
-        <div class="community-card fade-up delay-1">
-          <div class="community-card-icon" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M27.2 6.4C25.14 5.47 22.94 4.8 20.64 4.44a.1.1 0 0 0-.11.05c-.28.5-.59 1.15-.81 1.67a23.7 23.7 0 0 0-7.14 0 13.2 13.2 0 0 0-.82-1.67.1.1 0 0 0-.1-.05C9.36 4.8 7.16 5.47 5.1 6.4a.09.09 0 0 0-.04.04C1.46 11.7.43 16.86.85 21.95c0 .03.02.05.04.07a26.6 26.6 0 0 0 7.99 4.04.1.1 0 0 0 .11-.04 19 19 0 0 0 1.64-2.66.1.1 0 0 0-.05-.14 17.5 17.5 0 0 1-2.5-1.19.1.1 0 0 1-.01-.17c.17-.13.33-.26.49-.39a.1.1 0 0 1 .1-.01c5.24 2.39 10.91 2.39 16.08 0a.1.1 0 0 1 .1.01c.16.13.32.27.49.4a.1.1 0 0 1-.01.16 16.4 16.4 0 0 1-2.5 1.19.1.1 0 0 0-.05.14c.48.93 1.03 1.82 1.63 2.66a.1.1 0 0 0 .11.04 26.5 26.5 0 0 0 8.01-4.04.1.1 0 0 0 .04-.07c.5-5.77-1.12-10.88-4.74-15.51a.08.08 0 0 0-.04-.04z" fill="rgba(255,255,255,0.4)"/>
-            </svg>
-          </div>
-          <div class="community-card-body">
-            <h4>Discord Community</h4>
-            <p>Live access. Real people. Weekly strategy calls, shared resources, direct feedback, and a group that doesn't let each other quit.</p>
-            <ul class="community-list">
-              <li>Weekly group strategy calls</li>
-              <li>Exclusive resource drops</li>
-              <li>Real accountability partners</li>
-              <li>Direct feedback from Christian</li>
-            </ul>
-          </div>
-          <a href="https://discord.gg/EAyfhvZAK" target="_blank" rel="noopener" class="btn btn-primary community-card-btn">
-            Join the Discord
-            <svg class="btn-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+        <div class="teaser-logo" aria-hidden="true">
+          <svg width="44" height="44" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="40" y="10" width="10" height="70" rx="1" fill="rgba(255,255,255,0.15)"/>
+            <rect x="14" y="36" width="62" height="10" rx="1" fill="rgba(255,255,255,0.15)"/>
+            <polygon points="45,5 42,14 48,14" fill="rgba(255,255,255,0.15)"/>
+            <polygon points="45,85 42,76 48,76" fill="rgba(255,255,255,0.15)"/>
+            <polygon points="9,41 18,38 18,44" fill="rgba(255,255,255,0.15)"/>
+            <polygon points="81,41 72,38 72,44" fill="rgba(255,255,255,0.15)"/>
+          </svg>
         </div>
 
-        <div class="community-card fade-up delay-2">
-          <div class="community-card-icon" aria-hidden="true">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2.67" y="2.67" width="26.67" height="26.67" rx="6.67" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
-              <circle cx="16" cy="16" r="5.33" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
-              <circle cx="23.33" cy="8.67" r="1.33" fill="rgba(255,255,255,0.4)"/>
-            </svg>
-          </div>
-          <div class="community-card-body">
-            <h4>Follow the Journey</h4>
-            <p>Behind-the-scenes strategy, daily mindset content, and a real look at how the work gets done. Follow along and stay sharp.</p>
-            <ul class="community-list">
-              <li>Daily content &amp; strategy</li>
-              <li>Behind-the-scenes access</li>
-              <li>Mindset &amp; motivation</li>
-              <li>Early announcements &amp; drops</li>
-            </ul>
-          </div>
-          <a href="https://www.instagram.com/olivascales" target="_blank" rel="noopener" class="btn btn-outline community-card-btn">
-            Follow @olivascales
-            <svg class="btn-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <div class="teaser-content">
+          <span class="section-tag" style="margin-bottom: 0.8rem;">The Origin</span>
+          <h3>Nothing was handed to me.</h3>
+          <p>
+            Humble family. No roadmap. Tried everything — dropshipping, trading, crypto.
+            Stumbled more times than I can count. Then I found the thing that actually worked.
+          </p>
+        </div>
+
+        <div class="teaser-action">
+          <a href="#story" class="btn btn-outline">
+            Read My Story
+            <svg class="btn-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
         </div>
 
       </div>
-
     </div>
   </section>
-  <!-- / PRIVATE COMMUNITY -->
 
 
   <div class="divider"></div>
@@ -554,13 +657,7 @@
           </div>
           <div class="chapter-content">
             <h4 class="chapter-title">The Beginning</h4>
-            <p>
-              I didn't grow up with advantages. No trust fund, no connections, no roadmap.
-              My family was humble — the kind of humble where every dollar has a story and
-              you learn early that nothing comes easy. My mother carried us through some of
-              the hardest times imaginable. She worked without complaining, sacrificed without
-              asking for anything back. Watching her is still the reason I don't quit.
-            </p>
+            <p>I didn't grow up with advantages. No trust fund, no connections, no roadmap. My family was humble — the kind of humble where every dollar has a story and you learn early that nothing comes easy. My mother carried us through some of the hardest times imaginable. She worked without complaining, sacrificed without asking for anything back. Watching her is still the reason I don't quit.</p>
           </div>
         </div>
 
@@ -571,12 +668,7 @@
           </div>
           <div class="chapter-content">
             <h4 class="chapter-title">The Hustle</h4>
-            <p>
-              I tried everything to change my situation. Dropshipping — built stores, ran ads,
-              hit walls. Day trading — stared at charts until midnight, gave back the wins.
-              Crypto — rode the highs, felt the lows. I wasn't failing because I was lazy.
-              I was failing because I hadn't found the right arena yet.
-            </p>
+            <p>I tried everything to change my situation. Dropshipping — built stores, ran ads, hit walls. Day trading — stared at charts until midnight, gave back the wins. Crypto — rode the highs, felt the lows. I wasn't failing because I was lazy. I was failing because I hadn't found the right arena yet.</p>
           </div>
         </div>
 
@@ -587,12 +679,7 @@
           </div>
           <div class="chapter-content">
             <h4 class="chapter-title">The Click</h4>
-            <p>
-              Then I came across scaling businesses. And something clicked differently —
-              not just interest, but recognition. Like I had finally found the arena I was
-              supposed to be in. The idea that you could take something that already works
-              and make it grow — that made sense to me like nothing else ever had.
-            </p>
+            <p>Then I came across scaling businesses. And something clicked differently — not just interest, but recognition. Like I had finally found the arena I was supposed to be in. The idea that you could take something that already works and make it grow — that made sense to me like nothing else ever had.</p>
           </div>
         </div>
 
@@ -603,12 +690,7 @@
           </div>
           <div class="chapter-content">
             <h4 class="chapter-title">The Rejection</h4>
-            <p>
-              Getting in wasn't easy. I reached out. I pitched. I showed up.
-              And I got rejected — a lot. Business owners didn't know me. I had no portfolio,
-              no reputation, no credibility yet. Just hunger. Just belief.
-              Just an obsessive willingness to outwork everyone who had more than me.
-            </p>
+            <p>Getting in wasn't easy. I reached out. I pitched. I showed up. And I got rejected — a lot. Business owners didn't know me. I had no portfolio, no reputation, no credibility yet. Just hunger. Just belief. Just an obsessive willingness to outwork everyone who had more than me.</p>
           </div>
         </div>
 
@@ -625,12 +707,7 @@
           </div>
           <div class="chapter-content">
             <h4 class="chapter-title">The Turn</h4>
-            <p>
-              Then I got one yes. One person decided to bet on me. I treated that opportunity
-              like it was the last door on earth. I over-delivered. I stayed late. I obsessed.
-              That one yes turned into two. Two turned into five.
-              And five is when I finally understood — this is real. There is no ceiling on this.
-            </p>
+            <p>Then I got one yes. One person decided to bet on me. I treated that opportunity like it was the last door on earth. I over-delivered. I stayed late. I obsessed. That one yes turned into two. Two turned into five. And five is when I finally understood — this is real. There is no ceiling on this.</p>
           </div>
         </div>
 
@@ -641,17 +718,11 @@
           </div>
           <div class="chapter-content">
             <h4 class="chapter-title">Why Olivascales</h4>
-            <p>
-              I built Olivascales because I know I'm not the only one who's been in that place —
-              trying hard, getting rejected, wondering if it's ever going to happen. It does happen.
-              But only if you don't stop before it does.
-              This is the system I wish I had. Now I'm handing it to the people who are ready for it.
-            </p>
+            <p>I built Olivascales because I know I'm not the only one who's been in that place — trying hard, getting rejected, wondering if it's ever going to happen. It does happen. But only if you don't stop before it does. This is the system I wish I had. Now I'm handing it to the people who are ready for it.</p>
           </div>
         </div>
 
       </div>
-      <!-- / story-chapters -->
 
       <div class="story-cta fade-up">
         <a href="#apply" class="btn btn-primary">
@@ -664,7 +735,6 @@
 
     </div>
   </section>
-  <!-- / MY STORY -->
 
 
   <div class="divider"></div>
@@ -678,14 +748,8 @@
 
       <div class="merch-header">
         <span class="section-tag fade-up">Exclusive Drops</span>
-        <h2 class="fade-up delay-1">
-          Merch<br />
-          <span class="dim">Coming Soon</span>
-        </h2>
-        <p class="fade-up delay-2">
-          This isn't just clothing. It's armor.
-          Worn by the ones who decided they weren't done yet.
-        </p>
+        <h2 class="fade-up delay-1">Merch<br /><span class="dim">Coming Soon</span></h2>
+        <p class="fade-up delay-2">This isn't just clothing. It's armor. Worn by the ones who decided they weren't done yet.</p>
       </div>
 
       <div class="merch-grid">
@@ -763,13 +827,12 @@
           <button type="submit" class="notify-btn">Notify Me</button>
         </form>
         <p id="notify-success" class="notify-success" role="alert" aria-live="polite">
-          &#10022; &nbsp; You're in. We'll reach out when it drops.
+          ✦ &nbsp; You're in. We'll reach out when it drops.
         </p>
       </div>
 
     </div>
   </section>
-  <!-- / MERCH -->
 
 
   <!-- ============================================================
@@ -794,8 +857,7 @@
         <ul class="footer-links">
           <li><a href="#unlock">What You Get</a></li>
           <li><a href="#apply">Apply</a></li>
-          <li><a href="#community">Community</a></li>
-          <li><a href="#story">My Story</a></li>
+          <li><a href="#story">Story</a></li>
           <li><a href="#merch">Merch</a></li>
           <li><a href="https://discord.gg/EAyfhvZAK" target="_blank" rel="noopener">Discord</a></li>
           <li><a href="https://www.instagram.com/olivascales" target="_blank" rel="noopener">Instagram</a></li>
@@ -803,13 +865,12 @@
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-copy">&#169; 2025 Olivascales. All rights reserved.</p>
+        <p class="footer-copy">© 2025 Olivascales. All rights reserved.</p>
         <p class="footer-tagline">Built from nothing. Made for everything.</p>
       </div>
 
     </div>
   </footer>
-  <!-- / FOOTER -->
 
   <script src="script.js"></script>
 
