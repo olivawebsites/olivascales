@@ -2,7 +2,7 @@
    OLIVASCALES — script.js  (v2 — Mentorship / Course focus)
    ============================================================ */
 
-/* ---------- STARLIGHT CANVAS (Rolls-Royce luxury particles) ---------- */
+/* ---------- STARLIGHT CANVAS ---------- */
 function initStarlightCanvas() {
   const intro = document.getElementById('intro-screen');
   if (!intro) return null;
@@ -22,13 +22,12 @@ function initStarlightCanvas() {
   };
   window.addEventListener('resize', onResize, { passive: true });
 
-  /* 90 main stars — clearly visible, luxury brightness */
   const stars = Array.from({ length: 90 }, () => ({
     x:     Math.random(),
     y:     Math.random(),
-    r:     Math.random() * 1.5 + 0.5,    /* 0.5–2.0 px */
-    base:  Math.random() * 0.28 + 0.12,  /* base opacity 0.12–0.40 */
-    amp:   Math.random() * 0.18 + 0.06,  /* twinkle swing */
+    r:     Math.random() * 1.5 + 0.5,
+    base:  Math.random() * 0.28 + 0.12,
+    amp:   Math.random() * 0.18 + 0.06,
     phase: Math.random() * Math.PI * 2,
     freq:  Math.random() * 0.011 + 0.003,
     vx:    (Math.random() - 0.5) * 0.035,
@@ -36,12 +35,11 @@ function initStarlightCanvas() {
     hero:  false,
   }));
 
-  /* 7 large "anchor" hero stars — the standout bright points */
   const heroStars = Array.from({ length: 7 }, () => ({
     x:     Math.random(),
     y:     Math.random(),
-    r:     Math.random() * 1.5 + 2.0,   /* 2.0–3.5 px */
-    base:  Math.random() * 0.2  + 0.35, /* base opacity 0.35–0.55 */
+    r:     Math.random() * 1.5 + 2.0,
+    base:  Math.random() * 0.2  + 0.35,
     amp:   Math.random() * 0.22 + 0.1,
     phase: Math.random() * Math.PI * 2,
     freq:  Math.random() * 0.008 + 0.002,
@@ -51,7 +49,6 @@ function initStarlightCanvas() {
   }));
 
   const allStars = [...stars, ...heroStars];
-
   let frame = 0;
   let rafId;
 
@@ -60,7 +57,6 @@ function initStarlightCanvas() {
     frame++;
 
     for (const s of allStars) {
-      /* drift + wrap */
       s.x += s.vx / W;
       s.y += s.vy / H;
       if (s.x < 0) s.x = 1; else if (s.x > 1) s.x = 0;
@@ -69,7 +65,6 @@ function initStarlightCanvas() {
       const alpha = Math.max(0, s.base + Math.sin(frame * s.freq + s.phase) * s.amp);
 
       if (s.hero) {
-        /* Hero stars: soft radial glow halo behind them */
         const grd = ctx.createRadialGradient(s.x * W, s.y * H, 0, s.x * W, s.y * H, s.r * 5);
         grd.addColorStop(0, `rgba(255,255,255,${(alpha * 0.55).toFixed(3)})`);
         grd.addColorStop(1, 'rgba(255,255,255,0)');
@@ -97,81 +92,43 @@ function initStarlightCanvas() {
   };
 }
 
-/* ---------- INTRO SCREEN — v5 "Gates of Heaven" ---------- */
+/* ---------- INTRO SCREEN ---------- */
 function runIntro() {
   const intro    = document.getElementById('intro-screen');
-  const scene    = intro.querySelector('.intro-scene');
-  const seam     = intro.querySelector('.intro-gate-seam');
-  const gateSVGs = intro.querySelectorAll('.gate-svg');
   const logo     = intro.querySelector('.intro-logo');
   const title    = intro.querySelector('.intro-title');
   const subtitle = intro.querySelector('.intro-subtitle');
   const progress = intro.querySelector('.intro-progress-fill');
   const enterBtn = document.getElementById('intro-enter-btn');
-  const gateL    = intro.querySelector('.intro-gate-left');
-  const gateR    = intro.querySelector('.intro-gate-right');
+  const clouds   = intro.querySelectorAll('.intro-cloud');
   const body     = document.body;
 
   body.style.overflow = 'hidden';
 
-  /* ── 1. Stars (always behind everything, z:0 in intro-screen) ── */
   const stopStarlight = initStarlightCanvas();
 
-  /* ── 2. Reveal gate SVG art after a short settle ── */
-  setTimeout(() => {
-    gateSVGs.forEach(svg => svg.classList.add('visible'));
-  }, 180);
+  const onMouseMove = (e) => {
+    const mx = (e.clientX / window.innerWidth  - 0.5) * 2;
+    const my = (e.clientY / window.innerHeight - 0.5) * 2;
+    clouds.forEach(cloud => {
+      const px = parseFloat(cloud.style.getPropertyValue('--cpx') || 0.8);
+      const py = parseFloat(cloud.style.getPropertyValue('--cpy') || 0.35);
+      cloud.style.setProperty('--px', (mx * px * 28) + 'px');
+      cloud.style.setProperty('--py', (my * py * 12) + 'px');
+    });
+  };
+  window.addEventListener('mousemove', onMouseMove, { passive: true });
 
-  /* ── 3. Seam glow appears — gates look sealed ── */
-  setTimeout(() => {
-    if (seam) seam.classList.add('visible');
-  }, 300);
+  setTimeout(() => { if (progress) progress.classList.add('loaded'); }, 300);
+  setTimeout(() => { if (logo) logo.classList.add('visible'); }, 700);
+  setTimeout(() => { if (title) title.classList.add('visible'); }, 1500);
+  setTimeout(() => { if (subtitle) subtitle.classList.add('visible'); }, 2200);
+  setTimeout(() => { if (enterBtn) enterBtn.classList.add('visible'); }, 3000);
 
-  /* ── 4. Scene begins 3D approach (clouds + gates move toward viewer) ── */
-  setTimeout(() => {
-    if (scene) scene.classList.add('approach');
-  }, 350);
-
-  /* ── 5. Progress bar loads during the approach ── */
-  setTimeout(() => {
-    if (progress) progress.classList.add('loaded');
-  }, 600);
-
-  /* ── 6. Seam glow fades (gates about to open) ── */
-  setTimeout(() => {
-    if (seam) seam.classList.add('fading');
-  }, 3000);
-
-  /* ── 7. GATES OPEN — dramatic slide apart ── */
-  setTimeout(() => {
-    if (gateL) gateL.classList.add('open');
-    if (gateR) gateR.classList.add('open');
-  }, 3200);
-
-  /* ── 8. Logo appears spinning (viewer has passed through) ── */
-  setTimeout(() => {
-    if (logo) logo.classList.add('visible');
-  }, 4400);
-
-  /* ── 9. Title fades up ── */
-  setTimeout(() => {
-    if (title) title.classList.add('visible');
-  }, 5000);
-
-  /* ── 10. Subtitle fades up ── */
-  setTimeout(() => {
-    if (subtitle) subtitle.classList.add('visible');
-  }, 5500);
-
-  /* ── 11. Step Inside button appears ── */
-  setTimeout(() => {
-    if (enterBtn) enterBtn.classList.add('visible');
-  }, 6100);
-
-  /* ── Manual enter — click triggers cinematic exit ── */
   if (enterBtn) {
     enterBtn.addEventListener('click', () => {
       enterBtn.style.pointerEvents = 'none';
+      window.removeEventListener('mousemove', onMouseMove);
       intro.classList.add('fade-out');
       body.style.overflow = '';
       setTimeout(() => {
@@ -245,7 +202,7 @@ function initScrollAnimations() {
   targets.forEach(el => observer.observe(el));
 }
 
-/* ---------- SMOOTH SCROLL (anchor links) ---------- */
+/* ---------- SMOOTH SCROLL ---------- */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
@@ -257,21 +214,7 @@ function initSmoothScroll() {
   });
 }
 
-/* ---------- APPLICATION FORM ----------
-   HOW THIS WORKS:
-   The form uses action="https://formspree.io/f/YOUR_FORM_ID" by default.
-
-   TO ACTIVATE IT:
-   1. Go to https://formspree.io and sign up (free)
-   2. Create a new form and enter olivascales@gmail.com as the recipient
-   3. Copy the form ID they give you (looks like "xpznkwrd")
-   4. Open index.html and find the <form> tag
-   5. Replace "YOUR_FORM_ID" with your actual ID
-      Example: action="https://formspree.io/f/xpznkwrd"
-   6. That's it — Formspree handles the email routing
-
-   The code below adds a smooth success message instead of a page redirect.
-   -------------------------------------------------------------------- */
+/* ---------- APPLICATION FORM ---------- */
 function initApplyForm() {
   const form    = document.getElementById('apply-form');
   const success = document.getElementById('form-success');
@@ -341,7 +284,7 @@ function initNotifyForm() {
   });
 }
 
-/* ---------- PARALLAX (hero grid depth) ---------- */
+/* ---------- PARALLAX ---------- */
 function initParallax() {
   const grid = document.querySelector('.hero-grid');
   const glow = document.querySelector('.hero-glow');
@@ -353,7 +296,7 @@ function initParallax() {
   }, { passive: true });
 }
 
-/* ---------- CURSOR GLOW (desktop only) ---------- */
+/* ---------- CURSOR GLOW ---------- */
 function initCursorGlow() {
   if (window.innerWidth < 960) return;
   const cursor = document.createElement('div');
