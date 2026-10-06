@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- ============================================================
-       OLIVASCALES — index.html  (v3 — Instagram + Discord update)
+       OLIVASCALES — index.html  (v4 — Testimonials + Leads update)
        ============================================================ -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,16 +20,117 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── TESTIMONIALS ── */
+    #testimonials { padding: var(--section-padding, 120px 0); }
+    .testimonials-header { margin-bottom: 64px; }
+    .testimonials-header p {
+      max-width: 480px;
+      color: var(--gray, #888);
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-top: 16px;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 64px;
+    }
+    .testimonial-card {
+      padding: 36px 32px;
+      border: 1px solid rgba(255,255,255,0.07);
+      background: rgba(255,255,255,0.02);
+      position: relative;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .testimonial-card:hover {
+      border-color: rgba(255,255,255,0.16);
+      transform: translateY(-4px);
+    }
+    .testimonial-card::before {
+      content: '\201C';
+      font-family: Georgia, serif;
+      font-size: 72px;
+      line-height: 1;
+      color: rgba(255,255,255,0.04);
+      position: absolute;
+      top: 12px;
+      left: 20px;
+    }
+    .t-stars { display: flex; gap: 3px; margin-bottom: 18px; }
+    .t-stars span { color: rgba(200,200,200,0.85); font-size: 13px; }
+    .t-text {
+      font-size: 0.93rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.68);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+    .t-author { display: flex; align-items: center; gap: 14px; }
+    .t-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      flex-shrink: 0;
+    }
+    .t-name { font-size: 0.85rem; font-weight: 600; color: #fff; letter-spacing: 0.03em; }
+    .t-company { font-size: 0.7rem; color: rgba(255,255,255,0.35); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 2px; }
+    .testimonials-cta-row { text-align: center; }
+    .testimonials-cta-row p { font-size: 0.82rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; margin-bottom: 20px; }
+
+    /* ── BUSINESS LEADS ── */
+    #business-leads { padding: var(--section-padding, 120px 0); }
+    .leads-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .leads-left-sticky { position: sticky; top: 100px; }
+    .leads-left-sticky h2 { font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 700; line-height: 1.1; margin-bottom: 24px; }
+    .leads-left-sticky > p { font-size: 0.97rem; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 16px; }
+    .leads-left-sticky .sub-note { font-size: 0.82rem; color: rgba(255,255,255,0.28); line-height: 1.7; margin-bottom: 40px; }
+    .leads-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .leads-badge { padding: 7px 14px; border: 1px solid rgba(255,255,255,0.08); font-size: 0.67rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    .leads-form { display: flex; flex-direction: column; gap: 18px; }
+    .leads-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .leads-success {
+      display: none;
+      padding: 20px 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
+      font-size: 0.88rem;
+      color: rgba(200,200,200,0.7);
+      line-height: 1.6;
+      margin-top: 4px;
+    }
+    .leads-success.show { display: block; }
+    .leads-success strong { color: #fff; }
+
+    @media (max-width: 900px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .leads-inner { grid-template-columns: 1fr; gap: 48px; }
+      .leads-left-sticky { position: static; }
+      .leads-form .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body>
 
   <!-- ============================================================
-       INTRO SCREEN — cinematic entrance
+       INTRO SCREEN
        ============================================================ -->
   <div id="intro-screen" role="presentation" aria-hidden="true">
 
-    <!-- ---- ATMOSPHERIC CLOUDS / FOG ---- -->
     <div class="intro-clouds" aria-hidden="true">
       <div class="intro-cloud" style="--cx:6%;--cy:14%;--cw:500px;--ch:210px;--cdur:9s;--cdel:0s;--cop:0.22;--cpx:0.8;--cpy:0.35;"></div>
       <div class="intro-cloud" style="--cx:60%;--cy:10%;--cw:540px;--ch:190px;--cdur:11s;--cdel:2.1s;--cop:0.18;--cpx:0.6;--cpy:0.25;"></div>
@@ -41,15 +142,11 @@
       <div class="intro-cloud" style="--cx:78%;--cy:28%;--cw:450px;--ch:195px;--cdur:9.5s;--cdel:2.8s;--cop:0.16;--cpx:0.8;--cpy:0.32;"></div>
     </div>
 
-    <!-- ---- ATMOSPHERIC OVERLAYS ---- -->
     <div class="intro-center-glow" aria-hidden="true"></div>
     <div class="intro-ground-fog"  aria-hidden="true"></div>
     <div class="intro-light-shaft" aria-hidden="true"></div>
-
-    <!-- ---- VIGNETTE (darkens edges for cinematic framing) ---- -->
     <div class="intro-vignette" aria-hidden="true"></div>
 
-    <!-- ---- CONTENT ---- -->
     <div class="intro-logo">
       <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="45" cy="45" r="43" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
@@ -79,7 +176,6 @@
     <div class="intro-progress"><div class="intro-progress-fill"></div></div>
 
   </div>
-  <!-- / INTRO SCREEN -->
 
 
   <!-- ============================================================
@@ -107,7 +203,9 @@
       <ul class="nav-links">
         <li><a href="#unlock">What You Get</a></li>
         <li><a href="#story">Story</a></li>
+        <li><a href="#testimonials">Results</a></li>
         <li><a href="#merch">Merch</a></li>
+        <li><a href="#business-leads">Work With Us</a></li>
         <li>
           <a href="https://www.instagram.com/olivascales" target="_blank" rel="noopener" class="nav-ig-link" aria-label="Follow on Instagram">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -131,10 +229,11 @@
     <li><a href="#unlock">What You Get</a></li>
     <li><a href="#apply">Apply Now</a></li>
     <li><a href="#story">Story</a></li>
+    <li><a href="#testimonials">Results</a></li>
     <li><a href="#merch">Merch</a></li>
+    <li><a href="#business-leads">Work With Us</a></li>
     <li><a href="https://www.instagram.com/olivascales" target="_blank" rel="noopener">Instagram</a></li>
   </ul>
-  <!-- / NAVBAR -->
 
 
   <!-- ============================================================
@@ -194,7 +293,6 @@
       <span class="hero-scroll-text">Scroll</span>
     </div>
   </section>
-  <!-- / HERO -->
 
 
   <div class="divider"></div>
@@ -639,7 +737,100 @@
 
 
   <!-- ============================================================
-       SECTION 6 — MERCH COMING SOON
+       SECTION 6 — TESTIMONIALS  ★ NEW ★
+       ============================================================ -->
+  <section id="testimonials">
+    <div class="container">
+
+      <div class="testimonials-header fade-up">
+        <span class="section-tag">Client Results</span>
+        <h2>Results That<br />Speak.</h2>
+        <p>
+          Real companies. Real growth. These are the partners who took the step
+          — and what happened when they did.
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card fade-up delay-1">
+          <div class="t-stars" aria-label="5 stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="t-text">
+            "Working with Olivascales was different from day one. They understood
+            our brand, found the right clients, and closed deals we had been
+            chasing for months. The process was smooth and the results were real.
+            I'd recommend them without hesitation."
+          </p>
+          <div class="t-author">
+            <div class="t-avatar">L</div>
+            <div>
+              <p class="t-name">Lavi Lo</p>
+              <p class="t-company">Lavi Lo — Founder</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-up delay-2">
+          <div class="t-stars" aria-label="5 stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="t-text">
+            "We needed to scale our client base and didn't know where to start.
+            Olivascales came in with a clear strategy and a relentless work ethic.
+            Within weeks we had qualified leads coming in consistently.
+            They don't just talk — they deliver."
+          </p>
+          <div class="t-author">
+            <div class="t-avatar">V</div>
+            <div>
+              <p class="t-name">Verdant Landscaping</p>
+              <p class="t-company">Verdant Landscaping — Owner</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card fade-up delay-3">
+          <div class="t-stars" aria-label="5 stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p class="t-text">
+            "I was skeptical at first — I've dealt with agencies that overpromise
+            and underdeliver. Olivascales was the opposite. Straight with us,
+            executed fast, and brought in clients that actually converted.
+            Serious team, serious results."
+          </p>
+          <div class="t-author">
+            <div class="t-avatar">H</div>
+            <div>
+              <p class="t-name">Houston A/C</p>
+              <p class="t-company">Houston A/C — Operations Lead</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="testimonials-cta-row fade-up">
+        <p>Ready to be the next success story?</p>
+        <a href="#business-leads" class="btn btn-primary">
+          Let's Work Together
+          <svg class="btn-arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <div class="divider"></div>
+
+
+  <!-- ============================================================
+       SECTION 7 — MERCH COMING SOON
        ============================================================ -->
   <section id="merch">
     <div class="container">
@@ -739,6 +930,137 @@
   </section>
 
 
+  <div class="divider"></div>
+
+
+  <!-- ============================================================
+       SECTION 8 — BUSINESS LEADS  ★ NEW ★
+       ============================================================ -->
+  <section id="business-leads">
+    <div class="container">
+
+      <div class="leads-inner">
+
+        <div class="leads-left-sticky fade-up">
+          <span class="section-tag">For Business Owners</span>
+          <h2>Let's Scale<br />Your Business.</h2>
+          <p>
+            If you're a company looking to grow — more clients, more revenue,
+            more reach — this is where it starts. Drop your info below and I'll
+            reach out to you directly.
+          </p>
+          <p class="sub-note">
+            We work with businesses ready to move fast and build something real.
+            No long sales process. Just a straight conversation about where you are
+            and where you want to go.
+          </p>
+          <div class="leads-badges">
+            <span class="leads-badge">Lead Generation</span>
+            <span class="leads-badge">Client Acquisition</span>
+            <span class="leads-badge">Business Scaling</span>
+            <span class="leads-badge">Revenue Growth</span>
+          </div>
+        </div>
+
+        <div>
+          <form
+            id="leads-form"
+            class="leads-form fade-up delay-1"
+            action="https://formspree.io/f/xnjgoywk"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="New Business Lead — Olivascales" />
+            <input type="hidden" name="_replyto" value="olivascales@gmail.com" />
+            <input type="hidden" name="form_type" value="business_lead" />
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="l-fname">First Name</label>
+                <input class="form-input" type="text" id="l-fname" name="first_name" placeholder="John" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="l-lname">Last Name</label>
+                <input class="form-input" type="text" id="l-lname" name="last_name" placeholder="Smith" required />
+              </div>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label class="form-label" for="l-company">Company Name</label>
+              <input class="form-input" type="text" id="l-company" name="company_name" placeholder="Your Company LLC" required />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="l-email">Email Address</label>
+                <input class="form-input" type="email" id="l-email" name="business_email" placeholder="you@company.com" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="l-phone">Phone Number</label>
+                <input class="form-input" type="tel" id="l-phone" name="phone" placeholder="+1 (000) 000-0000" />
+              </div>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label class="form-label" for="l-industry">Industry</label>
+              <select class="form-input form-select" id="l-industry" name="industry" required>
+                <option value="" disabled selected>Select your industry</option>
+                <option>Home Services (HVAC, Plumbing, Electrical)</option>
+                <option>Landscaping &amp; Outdoor</option>
+                <option>E-Commerce / Retail</option>
+                <option>Real Estate</option>
+                <option>Health &amp; Wellness</option>
+                <option>Automotive</option>
+                <option>Restaurants &amp; Food</option>
+                <option>Professional Services</option>
+                <option>Construction &amp; Contracting</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label class="form-label" for="l-revenue">Monthly Revenue (Approx.)</label>
+              <select class="form-input form-select" id="l-revenue" name="monthly_revenue">
+                <option value="" disabled selected>Select a range</option>
+                <option>Under $10K / month</option>
+                <option>$10K – $50K / month</option>
+                <option>$50K – $100K / month</option>
+                <option>$100K – $500K / month</option>
+                <option>$500K+ / month</option>
+              </select>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label class="form-label" for="l-goals">What Are You Trying to Achieve?</label>
+              <textarea
+                class="form-input form-textarea"
+                id="l-goals"
+                name="goals"
+                rows="4"
+                placeholder="More clients? Better outreach? Consistent revenue? Tell us where you want to go and what's currently holding you back."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit">
+              Send My Info — I'm Ready
+              <svg class="btn-arrow" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+
+            <div id="leads-success" class="leads-success" role="alert" aria-live="polite">
+              <strong>✦ &nbsp; We got you.</strong><br/>
+              Someone from the Olivascales team will be reaching out to you personally.
+              Stay ready — we move fast.
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
   <!-- ============================================================
        FOOTER
        ============================================================ -->
@@ -762,7 +1084,9 @@
           <li><a href="#unlock">What You Get</a></li>
           <li><a href="#apply">Apply</a></li>
           <li><a href="#story">Story</a></li>
+          <li><a href="#testimonials">Results</a></li>
           <li><a href="#merch">Merch</a></li>
+          <li><a href="#business-leads">Work With Us</a></li>
           <li><a href="https://discord.gg/EAyfhvZAK" target="_blank" rel="noopener">Discord</a></li>
           <li><a href="https://www.instagram.com/olivascales" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
@@ -777,6 +1101,30 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <script>
+    (function () {
+      // Animate testimonial cards on scroll
+      var cards = document.querySelectorAll('.testimonial-card');
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = '1';
+              entry.target.style.transform = 'translateY(0)';
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        cards.forEach(function (el) {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(28px)';
+          el.style.transition = 'opacity 0.65s ease, transform 0.65s ease';
+          obs.observe(el);
+        });
+      }
+    })();
+  </script>
 
 </body>
 </html>
